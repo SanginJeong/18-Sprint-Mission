@@ -26,6 +26,11 @@ header {
   display: flex;
   justify-content: center;
   padding: 9px 0;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  background-color: white;
 }
 
 nav {
@@ -67,14 +72,14 @@ nav {
   font-size: 40px;
   line-height: 140%;
   margin: 0;
-  color: #374151;
+  color: var(--gray700);
 }
 
 .sub-description {
   font-weight: 500;
   font-size: 24px;
   line-height: 32px;
-  color: #374151;
+  color: var(--gray700);
 }
 
 .main-wrap {
@@ -115,7 +120,7 @@ nav {
   font-weight: 800;
   font-size: 18px;
   line-height: 26px;
-  color: #3692FF;
+  color: var(--blue);
 }
 
 footer {
@@ -134,7 +139,7 @@ footer {
 }
 
 .footer-left > p{
-  color: #9CA3AF;
+  color: var(--gray400);
 }
 
 .footer-center {
@@ -143,7 +148,7 @@ footer {
 }
 
 .footer-center > a {
-  color: #E5E7EB;
+  color: var(--gray200);
 
   text-decoration: none;
 }

@@ -20,7 +20,7 @@
 }
 
 .form-label {
-  color: #1F2937;
+  color: #1f2937;
   font-weight: 700;
   font-weight: bold;
   font-size: 18px;
@@ -29,12 +29,12 @@
 
 .form-input {
   height: 56px;
-  background-color: #F3F4F6;
+  background-color: #f3f4f6;
   border-radius: 12px;
   font-size: 16px;
   line-height: 26px;
   border: none;
-  color: #1F2937;
+  color: #1f2937;
   padding-left: 20px;
 }
 
@@ -62,7 +62,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #E6F2FF;
+  background-color: #e6f2ff;
   padding: 16px 23px;
   margin-bottom: 10px;
   height: 74px;
@@ -74,7 +74,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
-  color: #1F2937;
+  color: #1f2937;
   font-weight: normal;
 }
 
@@ -83,7 +83,8 @@
   gap: 16px;
 }
 
-.google-btn-area, .kakao-btn-area {
+.google-btn-area,
+.kakao-btn-area {
   width: 42px;
   height: 42px;
   display: inline-block;
@@ -101,7 +102,7 @@
   background-color: yellow;
 }
 
-.hint-message-area{
+.hint-message-area {
   text-align: center;
   font-weight: 500;
   font-size: 14px;
@@ -109,10 +110,10 @@
 
 .hint-message {
   line-height: 24px;
-  color: #1F2937;
+  color: #1f2937;
 }
 
 .go-link {
-  color: #3692FF;
+  color: #3692ff;
   line-height: 100%;
 }

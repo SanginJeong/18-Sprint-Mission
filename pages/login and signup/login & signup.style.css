@@ -1,0 +1,118 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.form-area {
+  padding-top: 231px;
+  width: 640px;
+  height: 618px;
+}
+
+.form-logo-area {
+  text-align: center;
+}
+
+.login-signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-label {
+  color: #1F2937;
+  font-weight: 700;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.form-input {
+  height: 56px;
+  background-color: #F3F4F6;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 26px;
+  border: none;
+  color: #1F2937;
+  padding-left: 20px;
+}
+
+.password-input-area {
+  position: relative;
+}
+
+.visibility-img {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+}
+
+.form-submit-btn {
+  padding: 16px 124px;
+  border-radius: 40px;
+  height: 56px;
+  font-weight: 600;
+  font-size: 20px;
+  place-items: center;
+}
+
+.easy-login-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E6F2FF;
+  padding: 16px 23px;
+  margin-bottom: 10px;
+  height: 74px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.easy-login-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  color: #1F2937;
+  font-weight: normal;
+}
+
+.easy-login-btns {
+  display: flex;
+  gap: 16px;
+}
+
+.google-btn-area, .kakao-btn-area {
+  width: 42px;
+  height: 42px;
+  display: inline-block;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-btn-area {
+  background-color: white;
+}
+
+.kakao-btn-area {
+  background-color: yellow;
+}
+
+.hint-message-area{
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.hint-message {
+  line-height: 24px;
+  color: #1F2937;
+}
+
+.go-link {
+  color: #3692FF;
+  line-height: 100%;
+}

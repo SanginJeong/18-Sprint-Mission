@@ -71,8 +71,11 @@ nav {
   font-weight: 700;
   font-size: 40px;
   line-height: 140%;
+  gap: 5px;
   margin: 0;
   color: var(--gray700);
+  display: flex;
+  flex-direction: column;
 }
 
 .sub-description {
@@ -195,8 +198,7 @@ footer {
   }
 
   .description {
-    display: flex;
-    gap: 5px;
+    flex-direction: row;
   }
 
   .main-wrap {
@@ -210,5 +212,37 @@ footer {
 
   .footer-area {
     width: 536px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    padding: 9px 16px;
+  }
+
+  .description{
+    flex-direction: column;
+  }
+
+  .landing-top .description {
+    align-items: center;
+  }
+
+  .items-btn {
+    padding: 12px 71px;
+    width: 100%;
+  }
+
+  footer {
+    position: relative;
+  }
+
+  .footer-area {
+    width: 311px;
+  }
+
+  .footer-left {
+    position: absolute;
+    bottom: 20%;
   }
 }

@@ -87,6 +87,7 @@ nav {
   gap: 64px;
   width: 988px;
   padding: 138px 0;
+  box-sizing: border-box;
 }
 
 .hot-item-left,
@@ -159,4 +160,55 @@ footer {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+@media screen and (max-width: 1199px) {
+  header {
+    padding: 9px 24px;
+  }
+  .container {
+    width: 100%;
+  }
+  .main-wrap {
+    padding: 24px;
+  }
+
+  .landing {
+    height: 927px;
+  }
+
+  .landing-top {
+    padding-top: 74px;
+  }
+
+  .landing-top a {
+    text-align: center;
+  }
+  .landing-area {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .landing-area-right {
+    flex: none;
+  }
+
+  .description {
+    display: flex;
+    gap: 5px;
+  }
+
+  .main-wrap {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .section-search {
+    flex-direction: column-reverse;
+  }
+
+  .footer-area {
+    width: 536px;
+  }
 }

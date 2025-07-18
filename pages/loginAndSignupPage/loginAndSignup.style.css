@@ -13,6 +13,12 @@
   text-align: center;
 }
 
+.form-logo {
+  width: 396px;
+  height: 132px;
+  margin-bottom: 24px;
+}
+
 .login-signup-form {
   display: flex;
   flex-direction: column;
@@ -116,4 +122,22 @@
 .go-link {
   color: var(--blue);
   line-height: 100%;
+}
+
+.disabled {
+  background-color: var(--gray400);
+}
+
+@media screen and (max-width: 767px) {
+  .form-logo {
+    width: 198px;
+    height: 66px;
+  }
+  .wrap {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .form-area {
+    padding: 231px 16px;
+  }
 }

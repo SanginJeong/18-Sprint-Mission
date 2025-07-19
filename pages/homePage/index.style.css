@@ -40,7 +40,7 @@ nav {
 }
 
 .landing {
-  background-color: #CFE5FF;
+  background-color: #cfe5ff;
   width: 100%;
   height: 540px;
 }
@@ -55,7 +55,7 @@ nav {
   display: flex;
 }
 
-.landing-area-left{
+.landing-area-left {
   flex: 4;
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@ nav {
   gap: 32px;
 }
 
-.landing-area-right{
+.landing-area-right {
   flex: 8;
 }
 
@@ -71,8 +71,11 @@ nav {
   font-weight: 700;
   font-size: 40px;
   line-height: 140%;
+  gap: 5px;
   margin: 0;
   color: var(--gray700);
+  display: flex;
+  flex-direction: column;
 }
 
 .sub-description {
@@ -87,13 +90,16 @@ nav {
   gap: 64px;
   width: 988px;
   padding: 138px 0;
+  box-sizing: border-box;
 }
 
-.hot-item-left, .register-left {
+.hot-item-left,
+.register-left {
   flex: 7;
 }
 
-.hot-item-right, .register-right {
+.hot-item-right,
+.register-right {
   flex: 5;
   display: flex;
   flex-direction: column;
@@ -138,7 +144,7 @@ footer {
   align-items: center;
 }
 
-.footer-left > p{
+.footer-left > p {
   color: var(--gray400);
 }
 
@@ -157,4 +163,86 @@ footer {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+@media screen and (max-width: 1199px) {
+  header {
+    padding: 9px 24px;
+  }
+  .container {
+    width: 100%;
+  }
+  .main-wrap {
+    padding: 24px;
+  }
+
+  .landing {
+    height: 927px;
+  }
+
+  .landing-top {
+    padding-top: 74px;
+  }
+
+  .landing-top a {
+    text-align: center;
+  }
+  .landing-area {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .landing-area-right {
+    flex: none;
+  }
+
+  .description {
+    flex-direction: row;
+  }
+
+  .main-wrap {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .section-search {
+    flex-direction: column-reverse;
+  }
+
+  .footer-area {
+    width: 536px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    padding: 9px 16px;
+  }
+
+  .description{
+    flex-direction: column;
+  }
+
+  .landing-top .description {
+    align-items: center;
+  }
+
+  .items-btn {
+    padding: 12px 71px;
+    width: 100%;
+  }
+
+  footer {
+    position: relative;
+  }
+
+  .footer-area {
+    width: 311px;
+  }
+
+  .footer-left {
+    position: absolute;
+    bottom: 20%;
+  }
 }

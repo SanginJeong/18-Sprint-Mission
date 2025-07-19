@@ -3,36 +3,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓 - 로그인</title>
-    <link rel="shortcut icon" href="../../../images/favicon.ico" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="../../../images/favicon.ico"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="../../../style.css" />
-    <link rel="stylesheet" href="../login & signup.style.css" />
+    <link rel="stylesheet" href="../loginAndSignup.style.css" />
   </head>
   <body>
     <main class="wrap">
       <div class="form-area">
         <div class="form-logo-area">
           <a href="../../../index.html">
-            <img
-              src="../../../images/logo.png"
-              alt="logo"
-              style="width: 396px; height: 132px"
-            />
+            <img class="form-logo" src="../../../images/logo.png" alt="logo" />
           </a>
         </div>
         <form class="login-signup-form">
           <label class="form-label">이메일</label>
-          <input class="form-input" type="email" />
+          <input
+            class="form-input"
+            type="email"
+            placeholder="이메일을 입력해주세요"
+          />
           <label class="form-label">비밀번호</label>
           <div class="password-input-area">
-            <input class="form-input" type="password" style="width: 100%" />
+            <input
+              class="form-input"
+              type="password"
+              style="width: 100%"
+              placeholder="비밀번호를 입력해주세요"
+            />
             <button type="button" class="visibility-img">
-              <img
-                src="../../../images/btn_visibility_on_24px.png"
-                alt="visibility"
-              />
+              <img src="../../../images/visibility-icon.svg" alt="visibility" />
             </button>
           </div>
-          <button class="form-submit-btn">로그인</button>
+          <button class="form-submit-btn disabled" disabled>로그인</button>
         </form>
 
         <div class="easy-login-area">

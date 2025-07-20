@@ -124,9 +124,10 @@
   line-height: 100%;
 }
 
-.disabled {
+.form-btn:disabled {
   background-color: var(--gray400);
 }
+
 
 @media screen and (max-width: 767px) {
   .form-logo {

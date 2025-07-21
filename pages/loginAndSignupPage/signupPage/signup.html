@@ -21,20 +21,27 @@
         </div>
         <form class="login-signup-form">
           <label class="form-label">이메일</label>
-          <input
-            class="form-input"
-            type="email"
-            placeholder="이메일을 입력해주세요"
-          />
-          <label class="form-label">닉네임</label>
-          <input
-            class="form-input"
-            type="text"
-            placeholder="닉네임을 입력해주세요"
-          />
-          <label class="form-label">비밀번호</label>
-          <div class="password-input-area">
+          <div class="form-input-area">
             <input
+              id="signup-email"
+              class="form-input"
+              type="email"
+              placeholder="이메일을 입력해주세요"
+            />
+          </div>
+          <label class="form-label">닉네임</label>
+          <div class="form-input-area">
+            <input
+              id="signup-nickname"
+              class="form-input"
+              type="text"
+              placeholder="닉네임을 입력해주세요"
+            />
+          </div>
+          <label class="form-label">비밀번호</label>
+          <div class="form-input-area">
+            <input
+              id="signup-password"
               class="form-input"
               type="password"
               style="width: 100%"
@@ -45,8 +52,9 @@
             </button>
           </div>
           <label class="form-label">비밀번호 확인</label>
-          <div class="password-input-area">
+          <div class="form-input-area">
             <input
+              id="signup-checkPassword"
               class="form-input"
               type="password"
               style="width: 100%"
@@ -56,7 +64,7 @@
               <img src="../../../images/visibility-icon.svg" alt="visibility" />
             </button>
           </div>
-          <button class="button form-btn">회원가입</button>
+          <button class="button form-btn" id="signup-btn" disabled>회원가입</button>
         </form>
 
         <div class="easy-login-area">

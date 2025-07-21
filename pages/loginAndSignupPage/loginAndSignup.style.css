@@ -44,11 +44,11 @@
   padding-left: 20px;
 }
 
-.password-input-area {
+.form-input-area {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 8px;
 }
 
 .visibility-img {

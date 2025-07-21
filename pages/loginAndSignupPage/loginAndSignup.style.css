@@ -131,7 +131,6 @@
   background-color: var(--gray400);
 }
 
-
 @media screen and (max-width: 767px) {
   .form-logo {
     width: 198px;

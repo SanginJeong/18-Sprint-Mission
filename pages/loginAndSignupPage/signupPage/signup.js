@@ -9,8 +9,7 @@ const $signupNickname = document.querySelector("#signup-nickname");
 const $signupPassword = document.querySelector("#signup-password");
 const $signupCheckPassword = document.querySelector("#signup-checkPassword");
 const $signupBtn = document.querySelector("#signup-btn");
-const $signupForm = document.querySelector('#signup-form');
-
+const $signupForm = document.querySelector("#signup-form");
 
 $signupEmail.addEventListener("focusout", (e) => {
   e.preventDefault();
@@ -75,32 +74,36 @@ $signupPassword.addEventListener("focusout", (e) => {
     return errorTag;
   }
   isValidValue.signup.signupPassword = true;
-  const checkAll = Object.values(isValidValue.signup).every((bool)=>bool===true);
+  const checkAll = Object.values(isValidValue.signup).every(
+    (bool) => bool === true
+  );
 
   if (checkAll) {
     $signupBtn.disabled = false;
   }
 });
 
-$signupCheckPassword.addEventListener("focusout", (e)=>{
+$signupCheckPassword.addEventListener("focusout", (e) => {
   e.preventDefault();
   clearErrorTag(e.target);
-  const {value} = e.target;
-  if(value !== $signupPassword.value) {
+  const { value } = e.target;
+  if (value !== $signupPassword.value) {
     const errorTag = createErrorTag(e.target, "비밀번호가 일치하지 않습니다");
     $signupBtn.disabled = true;
-    return errorTag
+    return errorTag;
   }
 
   isValidValue.signup.signupCheckPassword = true;
-  const checkAll = Object.values(isValidValue.signup).every((bool)=>bool===true);
+  const checkAll = Object.values(isValidValue.signup).every(
+    (bool) => bool === true
+  );
 
-  if(checkAll) {
+  if (checkAll) {
     $signupBtn.disabled = false;
   }
-})
+});
 
-$signupForm.addEventListener("submit",(e)=>{
+$signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  window.location.href = "/pages/loginAndSignupPage/loginPage/login.html"
-})
+  window.location.href = "/pages/loginAndSignupPage/loginPage/login.html";
+});

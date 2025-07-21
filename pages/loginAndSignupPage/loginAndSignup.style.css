@@ -46,6 +46,9 @@
 
 .password-input-area {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .visibility-img {

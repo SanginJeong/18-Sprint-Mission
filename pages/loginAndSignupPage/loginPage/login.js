@@ -9,6 +9,7 @@ const $loginForm = document.querySelector("#login-form");
 const $loginEmail = document.querySelector("#login-email");
 const $loginPassword = document.querySelector("#login-password");
 const $loginBtn = document.querySelector("#login-btn");
+const $visibilityBtn = document.querySelector(".visibility-img");
 
 $loginEmail.addEventListener("focusout", (e) => {
   e.preventDefault();
@@ -65,4 +66,17 @@ $loginPassword.addEventListener("focusout", (e) => {
 $loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   window.location.href = "/items";
+});
+
+$visibilityBtn.addEventListener("click", () => {
+  const $passwordVisibilityImg = document.querySelector(
+    "#password-visibility-img"
+  );
+  if ($loginPassword.type === "password") {
+    $loginPassword.type = "text";
+    $passwordVisibilityImg.src = "../../../images/visibility-on.svg";
+  } else {
+    $loginPassword.type = "password";
+    $passwordVisibilityImg.src = "../../../images/visibility-icon.svg";
+  }
 });

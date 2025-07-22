@@ -10,6 +10,12 @@ const $signupPassword = document.querySelector("#signup-password");
 const $signupCheckPassword = document.querySelector("#signup-checkPassword");
 const $signupBtn = document.querySelector("#signup-btn");
 const $signupForm = document.querySelector("#signup-form");
+const $signupPasswordVisibilityBtn = document.querySelector(
+  "#signup-password-visibility-btn"
+);
+const $signupCheckPasswordVisibilityBtn = document.querySelector(
+  "#signup-checkPassword-visibility-btn"
+);
 
 $signupEmail.addEventListener("focusout", (e) => {
   e.preventDefault();
@@ -106,4 +112,24 @@ $signupCheckPassword.addEventListener("focusout", (e) => {
 $signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
   window.location.href = "/pages/loginAndSignupPage/loginPage/login.html";
+});
+
+$signupPasswordVisibilityBtn.addEventListener("click", (e) => {
+  if ($signupPassword.type === "password") {
+    $signupPassword.type = "text";
+    e.target.src = "../../../images/visibility-on.svg";
+  } else {
+    $signupPassword.type = "password";
+    e.target.src = "../../../images/visibility-icon.svg";
+  }
+});
+
+$signupCheckPasswordVisibilityBtn.addEventListener("click", (e) => {
+  if ($signupCheckPassword.type === "password") {
+    $signupCheckPassword.type = "text";
+    e.target.src = "../../../images/visibility-on.svg";
+  } else {
+    $signupCheckPassword.type = "password";
+    e.target.src = "../../../images/visibility-icon.svg";
+  }
 });

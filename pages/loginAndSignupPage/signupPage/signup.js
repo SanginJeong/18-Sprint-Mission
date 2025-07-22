@@ -24,12 +24,14 @@ $signupEmail.addEventListener("focusout", (e) => {
   if (!value) {
     const errorTag = createErrorTag(e.target, "이메일을 입력해주세요");
     $signupBtn.disabled = true;
+    isValidValue.signup.signupEmail = false;
     return errorTag;
   }
 
   if (!isValidEmail(value)) {
     const errorTag = createErrorTag(e.target, "잘못된 이메일 형식입니다");
     $signupBtn.disabled = true;
+    isValidValue.signup.signupEmail = false;
     return errorTag;
   }
 
@@ -49,6 +51,7 @@ $signupNickname.addEventListener("focusout", (e) => {
   if (!value) {
     const errorTag = createErrorTag(e.target, "닉네임을 입력해주세요");
     $signupBtn.disabled = true;
+    isValidValue.signup.signupNickname = false;
     return errorTag;
   }
 
@@ -67,6 +70,7 @@ $signupPassword.addEventListener("focusout", (e) => {
   const { value } = e.target;
   if (!value) {
     const errorTag = createErrorTag(e.target, "비밀번호를 입력해주세요");
+    isValidValue.signup.signupPassword = false;
     $signupBtn.disabled = true;
     return errorTag;
   }
@@ -76,6 +80,17 @@ $signupPassword.addEventListener("focusout", (e) => {
       e.target,
       "비밀번호를 8자 이상 입력해주세요."
     );
+    isValidValue.signup.signupPassword = false;
+    $signupBtn.disabled = true;
+    return errorTag;
+  }
+
+  if (
+    value !== $signupCheckPassword.value &&
+    $signupCheckPassword.value !== ""
+  ) {
+    const errorTag = createErrorTag(e.target, "비밀번호가 일치하지 않습니다");
+    isValidValue.signup.signupPassword = false;
     $signupBtn.disabled = true;
     return errorTag;
   }
@@ -96,6 +111,7 @@ $signupCheckPassword.addEventListener("focusout", (e) => {
   if (value !== $signupPassword.value) {
     const errorTag = createErrorTag(e.target, "비밀번호가 일치하지 않습니다");
     $signupBtn.disabled = true;
+    isValidValue.signup.signupCheckPassword = false;
     return errorTag;
   }
 

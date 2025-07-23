@@ -1,5 +1,6 @@
 .header {
   border-bottom: 1px solid #dfdfdf;
+  margin-bottom: 24px;
 }
 .nav {
   display: flex;

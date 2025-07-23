@@ -1,0 +1,29 @@
+.items-page-container {
+  max-width: 1200px;
+  height: 1206px;
+  margin: 0 auto;
+  width: 75%;
+}
+
+.item-page-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.product-category-description {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.productBest-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-list {
+  display: flex;
+  gap: 24px;
+}

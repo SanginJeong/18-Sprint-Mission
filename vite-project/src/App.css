@@ -20,9 +20,14 @@ a {
   color: black;
 }
 
+p {
+  margin: 0;
+}
+
 .button {
   cursor: pointer;
   border: none;
+  background: none;
 }
 
 .container {

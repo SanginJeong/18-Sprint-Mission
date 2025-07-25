@@ -5,8 +5,8 @@ import ProductCard from "../../../../common/productCard/ProductCard";
 import DropDown from "../../../../common/dropdown/DropDown";
 
 const dropdownMenus = {
-  좋아요순: "favorite",
   최신순: "recent",
+  좋아요순: "favorite",
 };
 
 const ProductAll = () => {

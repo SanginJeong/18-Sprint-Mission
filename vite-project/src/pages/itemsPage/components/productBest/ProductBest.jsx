@@ -6,7 +6,10 @@ const ProductBest = () => {
   const [bestProducts, setBestProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getProduct({ orderBy: "favorite", pageSize: 4 });
+      const [response, totalCount] = await getProduct({
+        orderBy: "favorite",
+        pageSize: 4,
+      });
       setBestProducts(response);
     };
     fetchData();

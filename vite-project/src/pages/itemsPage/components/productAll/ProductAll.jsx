@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router";
 import { getProduct } from "../../../../utils/api";
 import ProductCard from "../../../../common/productCard/ProductCard";
 import DropDown from "../../../../common/dropdown/DropDown";
+import Pagination from "../../../../common/pagination/Pagination";
 
 const dropdownMenus = {
   최신순: "recent",
@@ -12,16 +13,17 @@ const dropdownMenus = {
 const ProductAll = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [orderCategory, setOrderCategory] = useState("최신순");
-  const [offset, setOffset] = useState(1);
-
+  const [page, setPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getProduct({
+      const [response, totalCount] = await getProduct({
         orderBy: dropdownMenus[orderCategory],
         pageSize: 10,
-        page: offset,
+        page,
       });
       setAllProducts(response);
+      setTotalCount(totalCount);
     };
     fetchData();
     console.log("data", allProducts);
@@ -68,6 +70,8 @@ const ProductAll = () => {
           </li>
         ))}
       </ul>
+
+      <Pagination totalCount={totalCount} />
     </>
   );
 };

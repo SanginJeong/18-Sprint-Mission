@@ -4,6 +4,7 @@ import { getProduct } from "../../../../utils/api";
 import ProductCard from "../../../../common/productCard/ProductCard";
 import DropDown from "../../../../common/dropdown/DropDown";
 import Pagination from "../../../../common/pagination/Pagination";
+import ProductList from "../../../../common/productCard/ProductList";
 
 const dropdownMenus = {
   최신순: "recent",
@@ -61,16 +62,7 @@ const ProductAll = () => {
           />
         </div>
       </div>
-      <ul className="product-all-list">
-        {allProducts?.map((product) => (
-          <li key={product.id}>
-            <Link>
-              <ProductCard product={product} category="all-card-img" />
-            </Link>
-          </li>
-        ))}
-      </ul>
-
+      <ProductList allProducts={allProducts} />
       <Pagination totalCount={totalCount} />
     </>
   );

@@ -2,6 +2,10 @@
   --primary100: #3692ff;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
@@ -30,8 +34,11 @@ p {
   background: none;
 }
 
-.container {
-  max-width: 1520px;
-  width: 80%;
-  margin: 0 auto;
+.input {
+  width: 325px;
+  height: 42px;
+  padding: 9px 40px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f3f4f6;
 }

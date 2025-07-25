@@ -1,14 +1,13 @@
 import React from "react";
 import "./ProductCard.style.css";
 
-const ProductCard = ({ product }) => {
-  console.log("p", product);
+const ProductCard = ({ product, category }) => {
   return (
     <div className="product-card">
       <img
-        src={product.images[0]}
+        src={product.images[0] || "public/images/none-img.jpeg"}
         alt="product-img"
-        className="product-card-img"
+        className={`product-card-img ${category}`}
       />
       <div className="product-info">
         <p className="product-name">{product.name}</p>

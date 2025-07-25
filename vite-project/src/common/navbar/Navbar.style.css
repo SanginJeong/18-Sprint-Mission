@@ -1,12 +1,23 @@
 .header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
   border-bottom: 1px solid #dfdfdf;
-  margin-bottom: 24px;
+  background-color: white;
 }
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+.container {
+  width: 1470px;
+  height: 70px;
+  margin: 0 auto;
+}
+
 .nav-logo {
   width: 153px;
   height: 51px;
@@ -20,7 +31,6 @@
   font-weight: 700;
   line-height: 100%;
   font-size: 25.63px;
-  flex: 2;
 }
 
 .nav-links {
@@ -43,5 +53,4 @@
 .nav-panda {
   width: 40px;
   height: 40px;
-  background-color: black;
 }

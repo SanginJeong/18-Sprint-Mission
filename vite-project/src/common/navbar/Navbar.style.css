@@ -13,7 +13,8 @@
 }
 
 .container {
-  width: 1470px;
+  max-width: 1470px;
+  width: 80%;
   height: 70px;
   margin: 0 auto;
 }

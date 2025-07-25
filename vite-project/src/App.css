@@ -42,3 +42,13 @@ p {
   border-radius: 12px;
   background-color: #f3f4f6;
 }
+
+.wrap {
+  padding: 0 240px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+}

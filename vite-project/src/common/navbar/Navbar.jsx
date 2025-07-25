@@ -12,7 +12,7 @@ const Navbar = () => {
   const { pathname } = location;
   return (
     <header className="header">
-      <nav className="nav container">
+      <nav className="nav">
         <Link to="/" className="nav-logo">
           <img
             src="/public/images/panda-face.svg"

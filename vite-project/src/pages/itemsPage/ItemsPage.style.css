@@ -1,12 +1,6 @@
-.items-page-container {
-  max-width: 1200px;
-  width: 65%;
-  height: 1206px;
-  margin: 0 auto;
-  margin-top: 70px;
-}
-
 .item-page-layout {
+  margin-top: 70px;
+  height: 1206px;
   display: flex;
   flex-direction: column;
   gap: 40px;

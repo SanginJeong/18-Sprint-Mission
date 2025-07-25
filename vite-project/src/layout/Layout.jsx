@@ -6,7 +6,11 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      <Outlet />
+      <div className="wrap">
+        <div className="container">
+          <Outlet />
+        </div>
+      </div>
     </>
   );
 };

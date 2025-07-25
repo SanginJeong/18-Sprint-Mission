@@ -5,7 +5,7 @@ import ProductAll from "./components/productAll/ProductAll";
 
 const ItemsPage = () => {
   return (
-    <div className="items-page-container item-page-layout">
+    <div className="item-page-layout">
       <ProductBest />
       <ProductAll />
     </div>

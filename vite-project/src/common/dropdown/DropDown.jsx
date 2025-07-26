@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-const DropDown = ({ dropdownMenus, orderCategory, setOrderCategory }) => {
+const DropDown = ({ DROPDOWN_MENUS, orderCategory, setOrderCategory }) => {
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
-  const menus = Object.keys(dropdownMenus);
+  const menus = Object.keys(DROPDOWN_MENUS);
   const selectOrderCategory = (category) => {
     setIsOpenDropdown(false);
     setOrderCategory(category);
@@ -21,7 +21,7 @@ const DropDown = ({ dropdownMenus, orderCategory, setOrderCategory }) => {
       {isOpenDropdown && (
         <ul className="dropdown-menus">
           {menus.map((category, index) => (
-            <li key={dropdownMenus[category]}>
+            <li key={DROPDOWN_MENUS[category]}>
               <button
                 onClick={() => selectOrderCategory(category)}
                 className={`button dropdown-menu ${

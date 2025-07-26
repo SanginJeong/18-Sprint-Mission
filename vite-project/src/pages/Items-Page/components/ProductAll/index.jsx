@@ -5,7 +5,7 @@ import DropDown from "../../../../common/Dropdown/DropDown";
 import Pagination from "../../../../common/Pagination/Pagination";
 import ProductList from "../../../../common/Product-Card/ProductList";
 
-const dropdownMenus = {
+const DROPDOWN_MENUS = {
   최신순: "recent",
   좋아요순: "favorite",
 };
@@ -19,7 +19,7 @@ const ProductAll = () => {
   useEffect(() => {
     const fetchData = async () => {
       const [response, totalCount] = await getProduct({
-        orderBy: dropdownMenus[orderCategory],
+        orderBy: DROPDOWN_MENUS[orderCategory],
         pageSize: 10,
         page,
       });
@@ -58,7 +58,7 @@ const ProductAll = () => {
           <DropDown
             orderCategory={orderCategory}
             setOrderCategory={setOrderCategory}
-            dropdownMenus={dropdownMenus}
+            DROPDOWN_MENUS={DROPDOWN_MENUS}
           />
         </div>
       </div>

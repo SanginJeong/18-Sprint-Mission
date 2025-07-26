@@ -1,45 +1,19 @@
 import React, { useState } from "react";
 
-const DropDown = ({ DROPDOWN_MENUS, orderCategory, setOrderCategory }) => {
-  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
-  const menus = Object.keys(DROPDOWN_MENUS);
-  const selectOrderCategory = (category) => {
-    setIsOpenDropdown(false);
-    setOrderCategory(category);
-  };
+const DropDown = ({ children }) => {
+  return <div className="dropdown">{children}</div>;
+};
 
+DropDown.header = ({ children, onClick }) => {
   return (
-    <div className="dropdown">
-      <button
-        onClick={() => setIsOpenDropdown(!isOpenDropdown)}
-        className="button dropdown-btn"
-      >
-        <p>{orderCategory}</p>
-        <img src="public/images/arrow_down.svg" alt="arrow-down" />
-      </button>
-
-      {isOpenDropdown && (
-        <ul className="dropdown-menus">
-          {menus.map((category, index) => (
-            <li key={DROPDOWN_MENUS[category]}>
-              <button
-                onClick={() => selectOrderCategory(category)}
-                className={`button dropdown-menu ${
-                  index === 0
-                    ? "top"
-                    : index === menus.length - 1
-                    ? "bottom"
-                    : ""
-                }`}
-              >
-                {category}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <button onClick={onClick} className="button dropdown-btn">
+      {children}
+    </button>
   );
+};
+
+DropDown.menus = ({ children, isOpen }) => {
+  return isOpen && <ul className="dropdown-menus">{children}</ul>;
 };
 
 export default DropDown;

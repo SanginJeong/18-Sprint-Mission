@@ -11,15 +11,24 @@ const DROPDOWN_MENUS = {
 };
 
 const ProductAll = () => {
+  const navigate = useNavigate();
   const [allProducts, setAllProducts] = useState([]);
-  const [orderCategory, setOrderCategory] = useState("최신순");
+  const [orderBy, setOrderBy] = useState("최신순");
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+
+  const menus = Object.keys(DROPDOWN_MENUS);
+
+  const onClickMenu = (orderBy) => {
+    setOrderBy(orderBy);
+    setIsOpenDropdown(false);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       const [response, totalCount] = await getProduct({
-        orderBy: DROPDOWN_MENUS[orderCategory],
+        orderBy: DROPDOWN_MENUS[orderBy],
         pageSize: 10,
         page,
       });
@@ -28,8 +37,7 @@ const ProductAll = () => {
     };
     fetchData();
     console.log("data", allProducts);
-  }, [orderCategory]);
-  const navigate = useNavigate();
+  }, [orderBy]);
   return (
     <>
       <div className="product-all">
@@ -55,11 +63,31 @@ const ProductAll = () => {
               상품 등록하기
             </button>
           </div>
-          <DropDown
-            orderCategory={orderCategory}
-            setOrderCategory={setOrderCategory}
-            DROPDOWN_MENUS={DROPDOWN_MENUS}
-          />
+          <DropDown>
+            <DropDown.header onClick={() => setIsOpenDropdown(!isOpenDropdown)}>
+              <p>{orderBy}</p>
+              <img src="public/images/arrow_down.svg" alt="arrow-down" />
+            </DropDown.header>
+
+            <DropDown.menus isOpen={isOpenDropdown}>
+              {menus.map((orderBy, index) => (
+                <li key={DROPDOWN_MENUS[orderBy]}>
+                  <button
+                    onClick={() => onClickMenu(orderBy)}
+                    className={`button dropdown-menu ${
+                      index === 0
+                        ? "top"
+                        : index === menus.length - 1
+                        ? "bottom"
+                        : ""
+                    }`}
+                  >
+                    {orderBy}
+                  </button>
+                </li>
+              ))}{" "}
+            </DropDown.menus>
+          </DropDown>
         </div>
       </div>
       <ProductList allProducts={allProducts} className="product-all-list" />

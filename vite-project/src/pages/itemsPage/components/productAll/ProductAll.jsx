@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router";
 import { getProduct } from "../../../../utils/api";
-import ProductCard from "../../../../common/productCard/ProductCard";
 import DropDown from "../../../../common/dropdown/DropDown";
 import Pagination from "../../../../common/pagination/Pagination";
 import ProductList from "../../../../common/productCard/ProductList";
@@ -16,6 +15,7 @@ const ProductAll = () => {
   const [orderCategory, setOrderCategory] = useState("최신순");
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
+
   useEffect(() => {
     const fetchData = async () => {
       const [response, totalCount] = await getProduct({
@@ -63,7 +63,7 @@ const ProductAll = () => {
         </div>
       </div>
       <ProductList allProducts={allProducts} />
-      <Pagination totalCount={totalCount} />
+      <Pagination totalCount={totalCount} page={page} setPage={setPage} />
     </>
   );
 };

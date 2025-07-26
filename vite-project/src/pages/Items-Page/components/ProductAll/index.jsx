@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router";
 import { getProduct } from "../../../../utils/api";
-import DropDown from "../../../../common/dropdown/DropDown";
-import Pagination from "../../../../common/pagination/Pagination";
-import ProductList from "../../../../common/productCard/ProductList";
+import DropDown from "../../../../common/Dropdown/DropDown";
+import Pagination from "../../../../common/Pagination/Pagination";
+import ProductList from "../../../../common/Product-Card/ProductList";
 
 const dropdownMenus = {
   최신순: "recent",
@@ -62,7 +62,7 @@ const ProductAll = () => {
           />
         </div>
       </div>
-      <ProductList allProducts={allProducts} />
+      <ProductList allProducts={allProducts} className="product-all-list" />
       <Pagination totalCount={totalCount} page={page} setPage={setPage} />
     </>
   );

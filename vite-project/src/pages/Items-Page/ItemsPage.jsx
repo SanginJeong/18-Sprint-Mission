@@ -1,7 +1,7 @@
 import React from "react";
 import "./ItemsPage.style.css";
-import ProductBest from "./components/productBest/ProductBest";
-import ProductAll from "./components/productAll/ProductAll";
+import ProductBest from "./components/ProductBest";
+import ProductAll from "./components/ProductAll";
 
 const ItemsPage = () => {
   return (

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
 import ProductCard from "./ProductCard";
-const ProductList = ({ allProducts }) => {
+const ProductList = ({ allProducts, className }) => {
   return (
-    <ul className="product-all-list">
+    <ul className={className}>
       {allProducts?.map((product) => (
         <li key={product.id}>
           <Link>

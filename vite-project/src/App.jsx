@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./App.css";
 import { Route, Routes, Navigate } from "react-router";
-import ItemsPage from "./pages/itemsPage/ItemsPage";
-import AddItemPage from "./pages/addItemPage/AddItemPage";
+import ItemsPage from "./pages/Items-Page/ItemsPage";
+import AddItemPage from "./pages/AddItem-Page/AddItemPage";
 import Layout from "./layout/Layout";
-import FreeBoard from "./pages/freeBoardPage/FreeBoard";
+import FreeBoard from "./pages/FreeBoard-Page/FreeBoard";
 
 function App() {
   return (

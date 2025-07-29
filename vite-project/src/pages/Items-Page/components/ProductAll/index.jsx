@@ -4,6 +4,7 @@ import { useGetProduct } from "../../../../hooks/useGetProduct";
 import DropDown from "../../../../common/Dropdown/DropDown";
 import Pagination from "../../../../common/Pagination/Pagination";
 import ProductList from "../../../../common/Product-Card/ProductList";
+import { useResponsivePageSize } from "../../../../hooks/useResponsivePageSize";
 
 const DROPDOWN_MENUS = {
   최신순: "recent",
@@ -19,9 +20,8 @@ const ProductAll = () => {
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
-
+  const [_, pageSize] = useResponsivePageSize();
   const menus = Object.keys(DROPDOWN_MENUS);
-
   const onClickMenu = (orderBy) => {
     setOrderBy(orderBy);
     setIsOpenDropdown(false);
@@ -31,7 +31,7 @@ const ProductAll = () => {
     const fetchData = async () => {
       const [response, totalCount] = await useGetProduct({
         orderBy: DROPDOWN_MENUS[orderBy],
-        pageSize: 10,
+        pageSize,
         page,
       });
       setAllProducts(response);
@@ -39,7 +39,7 @@ const ProductAll = () => {
     };
     fetchData();
     console.log("data", allProducts);
-  }, [orderBy, page]);
+  }, [orderBy, page, pageSize]);
   return (
     <>
       <div className="product-all">

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router";
+import { Link, NavLink } from "react-router";
 import "./Navbar.style.css";
 
 const navLinks = [
@@ -8,8 +8,6 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const location = useLocation();
-  const { pathname } = location;
   return (
     <header className="header">
       <nav className="nav">
@@ -24,12 +22,7 @@ const Navbar = () => {
         <ul className="nav-links">
           {navLinks.map((link) => (
             <li key={link._id}>
-              <Link
-                className={pathname === link.url ? "active" : ""}
-                to={link.url}
-              >
-                {link.title}
-              </Link>
+              <NavLink to={link.url}>{link.title}</NavLink>
             </li>
           ))}
         </ul>

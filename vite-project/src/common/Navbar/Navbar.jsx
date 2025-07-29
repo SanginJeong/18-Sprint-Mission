@@ -17,7 +17,7 @@ const Navbar = () => {
         <Link to="/" className="nav-logo">
           {isMobile ? undefined : (
             <img
-              src="/public/images/panda-face.svg"
+              src="/images/panda-face.svg"
               alt="nav-logo"
               style={{ width: "40px", height: "40px" }}
             />
@@ -34,7 +34,7 @@ const Navbar = () => {
 
         <img
           className="nav-panda"
-          src="/public/images/nav-panda.svg"
+          src="/images/nav-panda.svg"
           alt="nav-panda"
         />
       </nav>

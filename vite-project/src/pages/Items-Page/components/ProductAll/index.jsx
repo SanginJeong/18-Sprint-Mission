@@ -52,7 +52,7 @@ const ProductAll = () => {
           <div className="product-all-menus">
             <form className="product-search-form">
               <img
-                src="public/images/ic_search.svg"
+                src="/images/ic_search.svg"
                 alt="search-icon"
                 className="search-icon"
               />
@@ -72,11 +72,11 @@ const ProductAll = () => {
           <DropDown>
             <DropDown.header onClick={() => setIsOpenDropdown(!isOpenDropdown)}>
               {isMobile ? (
-                <img src="public/images/ic_sort.svg" alt="sort-img" />
+                <img src="/images/ic_sort.svg" alt="sort-img" />
               ) : (
                 <>
                   <p>{orderBy}</p>
-                  <img src="public/images/arrow_down.svg" alt="arrow-down" />
+                  <img src="/images/arrow_down.svg" alt="arrow-down" />
                 </>
               )}
             </DropDown.header>

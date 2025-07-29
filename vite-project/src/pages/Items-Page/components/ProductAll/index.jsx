@@ -10,6 +10,8 @@ const DROPDOWN_MENUS = {
   좋아요순: "favorite",
 };
 
+const GROUP_SIZE = 5;
+
 const ProductAll = () => {
   const navigate = useNavigate();
   const [allProducts, setAllProducts] = useState([]);
@@ -37,7 +39,7 @@ const ProductAll = () => {
     };
     fetchData();
     console.log("data", allProducts);
-  }, [orderBy]);
+  }, [orderBy, page]);
   return (
     <>
       <div className="product-all">
@@ -91,7 +93,12 @@ const ProductAll = () => {
         </div>
       </div>
       <ProductList allProducts={allProducts} className="product-all-list" />
-      <Pagination totalCount={totalCount} page={page} setPage={setPage} />
+      <Pagination
+        GROUP_SIZE={GROUP_SIZE}
+        totalCount={totalCount}
+        page={page}
+        setPage={setPage}
+      />
     </>
   );
 };

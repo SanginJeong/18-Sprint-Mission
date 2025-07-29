@@ -9,12 +9,7 @@
   aspect-ratio: 1/1;
 }
 
-.product-card-img.best-card-img {
-  width: 100%;
-  height: 100%;
-}
-
-.product-card-img.all-card-img {
+.product-card-img {
   width: 100%;
   height: 100%;
 }

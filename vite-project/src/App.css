@@ -52,3 +52,19 @@ p {
 .container {
   max-width: 1200px;
 }
+
+@media screen and (max-width: 1199px) {
+  .wrap {
+    padding: 0 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrap {
+    padding: 0 16px;
+  }
+
+  .input {
+    width: 288px;
+  }
+}

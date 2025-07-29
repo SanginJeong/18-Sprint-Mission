@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
 import "./Navbar.style.css";
+import { useMediaQuery } from "react-responsive";
 
 const navLinks = [
   { _id: 1, title: "자유게시판", url: "/freeBoard" },
@@ -8,15 +9,19 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   return (
     <header className="header">
       <nav className="nav">
         <Link to="/" className="nav-logo">
-          <img
-            src="/public/images/panda-face.svg"
-            alt="nav-logo"
-            style={{ width: "40px", height: "40px" }}
-          />
+          {isMobile ? undefined : (
+            <img
+              src="/public/images/panda-face.svg"
+              alt="nav-logo"
+              style={{ width: "40px", height: "40px" }}
+            />
+          )}
           <h1 className="nav-title">판다마켓</h1>
         </Link>
         <ul className="nav-links">

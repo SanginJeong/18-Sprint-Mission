@@ -5,6 +5,7 @@ import DropDown from "../../../../common/Dropdown/DropDown";
 import Pagination from "../../../../common/Pagination/Pagination";
 import ProductList from "../../../../common/Product-Card/ProductList";
 import { useResponsivePageSize } from "../../../../hooks/useResponsivePageSize";
+import { useMediaQuery } from "react-responsive";
 
 const DROPDOWN_MENUS = {
   최신순: "recent",
@@ -22,6 +23,9 @@ const ProductAll = () => {
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   const [_, pageSize] = useResponsivePageSize();
   const menus = Object.keys(DROPDOWN_MENUS);
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const onClickMenu = (orderBy) => {
     setOrderBy(orderBy);
     setIsOpenDropdown(false);
@@ -67,8 +71,14 @@ const ProductAll = () => {
           </div>
           <DropDown>
             <DropDown.header onClick={() => setIsOpenDropdown(!isOpenDropdown)}>
-              <p>{orderBy}</p>
-              <img src="public/images/arrow_down.svg" alt="arrow-down" />
+              {isMobile ? (
+                <img src="public/images/ic_sort.svg" alt="sort-img" />
+              ) : (
+                <>
+                  <p>{orderBy}</p>
+                  <img src="public/images/arrow_down.svg" alt="arrow-down" />
+                </>
+              )}
             </DropDown.header>
 
             <DropDown.menus isOpen={isOpenDropdown}>

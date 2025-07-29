@@ -113,3 +113,47 @@
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }
+
+@media screen and (max-width: 1199px) {
+  .product-best-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .product-all-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .product-best-list {
+    display: block;
+  }
+  .product-all-list {
+    margin-top: 15px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .product-all {
+    position: relative;
+  }
+
+  .product-search-form {
+    position: absolute;
+    left: 0;
+    top: 58px;
+  }
+
+  .dropdown {
+    position: absolute;
+    right: 0;
+    top: 58px;
+  }
+
+  .dropdown-btn {
+    width: 42px;
+    height: 42px;
+    padding: 9px;
+  }
+
+  .dropdown-menus {
+    left: -88px;
+  }
+}

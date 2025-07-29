@@ -18,7 +18,7 @@ const Pagination = ({ GROUP_SIZE, totalCount, page, setPage }) => {
         className="button pagination-btn"
         disabled={page === 1}
       >
-        <img src="public/images/arrow_left.svg" alt="arrow_left" />
+        <img src="/images/arrow_left.svg" alt="arrow_left" />
       </button>
       {pages.map((num) => (
         <button

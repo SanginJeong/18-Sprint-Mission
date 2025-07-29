@@ -22,6 +22,7 @@ const Pagination = ({ GROUP_SIZE, totalCount, page, setPage }) => {
       </button>
       {pages.map((num) => (
         <button
+          key={num}
           onClick={() => setPage(num)}
           className={`button pagination-btn ${page === num ? "active" : ""}`}
         >

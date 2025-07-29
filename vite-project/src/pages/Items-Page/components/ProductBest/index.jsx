@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getProduct } from "../../../../utils/api";
+import { useGetProduct } from "../../../../hooks/useGetProduct";
 import ProductList from "../../../../common/Product-Card/ProductList";
 
 const ProductBest = () => {
   const [bestProducts, setBestProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const [response, totalCount] = await getProduct({
+      const [response, totalCount] = await useGetProduct({
         orderBy: "favorite",
         pageSize: 4,
       });

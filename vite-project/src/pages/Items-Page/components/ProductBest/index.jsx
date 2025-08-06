@@ -23,7 +23,7 @@ const ProductBest = () => {
   return (
     <div className="productBest-layout">
       <h1 className="product-category-description">베스트 상품</h1>
-      <ProductList allProducts={bestProducts} className="product-best-list" />
+      <ProductList products={bestProducts} className="product-best-list" />
     </div>
   );
 };

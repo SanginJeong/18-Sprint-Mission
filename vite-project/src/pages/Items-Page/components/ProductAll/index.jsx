@@ -105,7 +105,7 @@ const ProductAll = () => {
           </DropDown>
         </div>
       </div>
-      <ProductList allProducts={allProducts} className="product-all-list" />
+      <ProductList products={allProducts} className="product-all-list" />
       <Pagination
         GROUP_SIZE={GROUP_SIZE}
         totalCount={totalCount}

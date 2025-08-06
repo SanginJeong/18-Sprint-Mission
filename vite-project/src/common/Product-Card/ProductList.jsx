@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router";
 import ProductCard from "./ProductCard";
-const ProductList = ({ allProducts, className }) => {
+const ProductList = ({ products, className }) => {
   return (
     <ul className={className}>
-      {allProducts?.map((product) => (
+      {products?.map((product) => (
         <li key={product.id}>
           <Link>
             <ProductCard product={product} category="all-card-img" />

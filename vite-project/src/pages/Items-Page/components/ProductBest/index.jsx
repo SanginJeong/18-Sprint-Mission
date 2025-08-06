@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useGetProduct } from "../../../../hooks/useGetProduct";
+import { getProduct } from "../../../../api/getProduct";
 import ProductList from "../../../../common/Product-Card/ProductList";
 import { useResponsivePageSize } from "../../../../hooks/useResponsivePageSize";
 
@@ -9,7 +9,7 @@ const ProductBest = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await useGetProduct({
+      const data = await getProduct({
         orderBy: "favorite",
         pageSize: bestProductPageSize,
       });

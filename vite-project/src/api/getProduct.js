@@ -1,6 +1,6 @@
-import { instance } from "../utils/api";
+import { instance } from "./axiosInstance";
 
-export const useGetProduct = async (params) => {
+export const getProduct = async (params) => {
   try {
     const { data } = await instance.get("/products", { params });
     return data;

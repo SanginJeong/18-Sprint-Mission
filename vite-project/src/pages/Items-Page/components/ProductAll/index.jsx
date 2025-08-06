@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { useGetProduct } from "../../../../hooks/useGetProduct";
+import { getProduct } from "../../../../api/getProduct";
 import DropDown from "../../../../common/Dropdown/DropDown";
 import Pagination from "../../../../common/Pagination/Pagination";
 import ProductList from "../../../../common/Product-Card/ProductList";
@@ -33,7 +33,7 @@ const ProductAll = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await useGetProduct({
+      const data = await getProduct({
         orderBy: DROPDOWN_MENUS[orderBy],
         pageSize: allProductPageSize,
         page,

@@ -33,12 +33,15 @@ const ProductAll = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const [response, totalCount] = await useGetProduct({
+      const data = await useGetProduct({
         orderBy: DROPDOWN_MENUS[orderBy],
         pageSize: allProductPageSize,
         page,
       });
-      setAllProducts(response);
+      const { list } = data;
+      const { totalCount } = data;
+
+      setAllProducts(list);
       setTotalCount(totalCount);
     };
     fetchData();

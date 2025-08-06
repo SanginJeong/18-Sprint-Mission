@@ -9,11 +9,13 @@ const ProductBest = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const [response, totalCount] = await useGetProduct({
+      const data = await useGetProduct({
         orderBy: "favorite",
         pageSize: bestProductPageSize,
       });
-      setBestProducts(response);
+
+      const { list } = data;
+      setBestProducts(list);
     };
     fetchData();
   }, [bestProductPageSize]);

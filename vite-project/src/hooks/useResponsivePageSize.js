@@ -5,11 +5,20 @@ export const useResponsivePageSize = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   if (isMobile) {
-    return [1, 4]; // [베스트상품 pageSize, 전체상품 pageSize]
+    return {
+      bestProductPageSize: 1,
+      allProductPageSize: 4,
+    };
   }
   if (isTablet) {
-    return [2, 6];
+    return {
+      bestProductPageSize: 2,
+      allProductPageSize: 6,
+    };
   }
 
-  return [4, 10];
+  return {
+    bestProductPageSize: 4,
+    allProductPageSize: 10,
+  };
 };

@@ -21,7 +21,7 @@ const ProductAll = () => {
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
-  const [_, pageSize] = useResponsivePageSize();
+  const { _, allProductPageSize } = useResponsivePageSize();
   const menus = Object.keys(DROPDOWN_MENUS);
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -35,7 +35,7 @@ const ProductAll = () => {
     const fetchData = async () => {
       const [response, totalCount] = await useGetProduct({
         orderBy: DROPDOWN_MENUS[orderBy],
-        pageSize,
+        pageSize: allProductPageSize,
         page,
       });
       setAllProducts(response);
@@ -43,7 +43,7 @@ const ProductAll = () => {
     };
     fetchData();
     console.log("data", allProducts);
-  }, [orderBy, page, pageSize]);
+  }, [orderBy, page, allProductPageSize]);
   return (
     <>
       <div className="product-all">

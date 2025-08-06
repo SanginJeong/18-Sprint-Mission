@@ -5,18 +5,18 @@ import { useResponsivePageSize } from "../../../../hooks/useResponsivePageSize";
 
 const ProductBest = () => {
   const [bestProducts, setBestProducts] = useState([]);
-  const [pageSize, _] = useResponsivePageSize();
+  const { bestProductPageSize, _ } = useResponsivePageSize();
 
   useEffect(() => {
     const fetchData = async () => {
       const [response, totalCount] = await useGetProduct({
         orderBy: "favorite",
-        pageSize,
+        pageSize: bestProductPageSize,
       });
       setBestProducts(response);
     };
     fetchData();
-  }, [pageSize]);
+  }, [bestProductPageSize]);
 
   return (
     <div className="productBest-layout">

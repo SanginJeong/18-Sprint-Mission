@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import DropDown from "../../../../common/Dropdown";
 import { useMediaQuery } from "react-responsive";
-import { DROPDOWN_MENUS } from "../../../../constants/PRODUCTS";
+import { ORDER_BYS } from "../../../../constants/PRODUCTS";
 
 const ProductAllMenuBar = ({
   isOpenDropdown,
@@ -10,8 +10,11 @@ const ProductAllMenuBar = ({
   orderBy,
 }) => {
   const navigate = useNavigate();
-
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const DROPDOWN_MENUS = Object.keys(ORDER_BYS);
+  const selectedDropdownValue = DROPDOWN_MENUS.find(
+    (key) => ORDER_BYS[key] === orderBy
+  );
 
   return (
     <div className="product-all">
@@ -43,17 +46,17 @@ const ProductAllMenuBar = ({
               <img src="/images/ic_sort.svg" alt="sort-img" />
             ) : (
               <>
-                <p>{orderBy}</p>
+                <p>{selectedDropdownValue}</p>
                 <img src="/images/arrow_down.svg" alt="arrow-down" />
               </>
             )}
           </DropDown.header>
 
           <DropDown.menus isOpen={isOpenDropdown}>
-            {DROPDOWN_MENUS.map((orderBy, index) => (
-              <li key={orderBy}>
+            {DROPDOWN_MENUS.map((menu, index) => (
+              <li key={menu}>
                 <button
-                  onClick={() => onClickMenu(orderBy)}
+                  onClick={() => onClickMenu(ORDER_BYS[menu])}
                   className={`button dropdown-menu ${
                     index === 0
                       ? "top"
@@ -62,7 +65,7 @@ const ProductAllMenuBar = ({
                       : ""
                   }`}
                 >
-                  {orderBy}
+                  {menu}
                 </button>
               </li>
             ))}

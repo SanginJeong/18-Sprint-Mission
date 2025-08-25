@@ -9,7 +9,7 @@ import LoadingSpinner from "../../../../common/LoadingSpinner";
 import ErrorMessage from "../../../../common/ErrorMessage";
 
 const ProductAll = () => {
-  const [orderBy, setOrderBy] = useState(ORDER_BYS[0]);
+  const [orderBy, setOrderBy] = useState(ORDER_BYS["최신순"]);
   const [page, setPage] = useState(1);
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   const { _, allProductPageSize } = useResponsivePageSize();
@@ -27,8 +27,8 @@ const ProductAll = () => {
 
   const totalCount = allProducts?.totalCount;
 
-  const onClickMenu = (orderBy) => {
-    setOrderBy(orderBy);
+  const onClickMenu = (menu) => {
+    setOrderBy(menu);
     setIsOpenDropdown(false);
   };
 

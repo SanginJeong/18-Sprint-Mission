@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-import ProductCard from "./ProductCard";
+import ProductCard from "../ProductCard";
 const ProductList = ({ products, className }) => {
   return (
     <ul className={className}>

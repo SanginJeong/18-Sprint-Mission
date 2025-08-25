@@ -1,28 +1,36 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
-import { getProduct } from "../../../../api/getProduct";
-import DropDown from "../../../../common/Dropdown/DropDown";
-import Pagination from "../../../../common/Pagination/Pagination";
-import ProductList from "../../../../common/Product-Card/ProductList";
+import DropDown from "../../../../common/Dropdown";
+import Pagination from "../../../../common/Pagination";
+import ProductList from "../../../../common/ProductList";
 import { useResponsivePageSize } from "../../../../hooks/useResponsivePageSize";
 import { useMediaQuery } from "react-responsive";
-
-const DROPDOWN_MENUS = {
-  최신순: "recent",
-  좋아요순: "favorite",
-};
-
-const GROUP_SIZE = 5;
+import { useGetProductsQuery } from "../../../../hooks/useGetProducts";
+import {
+  ORDER_BYS,
+  DROPDOWN_MENUS,
+  GROUP_SIZE,
+} from "../../../../constants/PRODUCTS";
 
 const ProductAll = () => {
   const navigate = useNavigate();
-  const [allProducts, setAllProducts] = useState([]);
-  const [orderBy, setOrderBy] = useState("최신순");
+  const [orderBy, setOrderBy] = useState(ORDER_BYS[0]);
   const [page, setPage] = useState(1);
-  const [totalCount, setTotalCount] = useState(0);
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   const { _, allProductPageSize } = useResponsivePageSize();
-  const menus = Object.keys(DROPDOWN_MENUS);
+
+  const {
+    data: allProducts,
+    isLoading,
+    isError,
+    error,
+  } = useGetProductsQuery({
+    page,
+    orderBy,
+    pageSize: allProductPageSize,
+  });
+
+  const totalCount = allProducts?.totalCount;
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -31,22 +39,7 @@ const ProductAll = () => {
     setIsOpenDropdown(false);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getProduct({
-        orderBy: DROPDOWN_MENUS[orderBy],
-        pageSize: allProductPageSize,
-        page,
-      });
-      const { list } = data;
-      const { totalCount } = data;
-
-      setAllProducts(list);
-      setTotalCount(totalCount);
-    };
-    fetchData();
-    console.log("data", allProducts);
-  }, [orderBy, page, allProductPageSize]);
+  if (isLoading) return;
   return (
     <>
       <div className="product-all">
@@ -85,14 +78,14 @@ const ProductAll = () => {
             </DropDown.header>
 
             <DropDown.menus isOpen={isOpenDropdown}>
-              {menus.map((orderBy, index) => (
-                <li key={DROPDOWN_MENUS[orderBy]}>
+              {DROPDOWN_MENUS.map((orderBy, index) => (
+                <li key={orderBy}>
                   <button
                     onClick={() => onClickMenu(orderBy)}
                     className={`button dropdown-menu ${
                       index === 0
                         ? "top"
-                        : index === menus.length - 1
+                        : index === DROPDOWN_MENUS.length - 1
                         ? "bottom"
                         : ""
                     }`}
@@ -105,7 +98,7 @@ const ProductAll = () => {
           </DropDown>
         </div>
       </div>
-      <ProductList products={allProducts} className="product-all-list" />
+      <ProductList products={allProducts.list} className="product-all-list" />
       <Pagination
         GROUP_SIZE={GROUP_SIZE}
         totalCount={totalCount}

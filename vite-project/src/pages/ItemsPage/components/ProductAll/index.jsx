@@ -5,6 +5,8 @@ import ProductAllMenuBar from "./ProductAllMenuBar";
 import { useResponsivePageSize } from "../../../../hooks/useResponsivePageSize";
 import { useGetProductsQuery } from "../../../../hooks/useGetProducts";
 import { ORDER_BYS, GROUP_SIZE } from "../../../../constants/PRODUCTS";
+import LoadingSpinner from "../../../../common/LoadingSpinner";
+import ErrorMessage from "../../../../common/ErrorMessage";
 
 const ProductAll = () => {
   const [orderBy, setOrderBy] = useState(ORDER_BYS[0]);
@@ -30,7 +32,9 @@ const ProductAll = () => {
     setIsOpenDropdown(false);
   };
 
-  if (isLoading) return;
+  if (isLoading) return <LoadingSpinner />;
+
+  if (isError) return <ErrorMessage error={error} />;
   return (
     <>
       <ProductAllMenuBar

@@ -35,7 +35,7 @@ const ProductAllMenuBar = ({
           </form>
           <button
             onClick={() => navigate("/addItem")}
-            className="button product-all-menus-btn"
+            className="button btn-small-40 product-all-menus-btn"
           >
             상품 등록하기
           </button>

@@ -1,4 +1,6 @@
-const AddItemTag = ({ value, onChange }) => {
+import ErrorMessage from "../../../../common/ErrorMessage";
+
+const AddItemTag = ({ value, onChange, error }) => {
   return (
     <div>
       <h4>태그</h4>
@@ -9,6 +11,7 @@ const AddItemTag = ({ value, onChange }) => {
         value={value}
         onChange={onChange}
       />
+      {error && <ErrorMessage errorMessage={error} />}
     </div>
   );
 };

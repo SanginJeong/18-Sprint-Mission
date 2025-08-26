@@ -10,14 +10,15 @@ import TagList from "../../common/TagList";
 
 const AddItemPage = () => {
   const [formData, setFormData] = useState({
-    images: [],
-    name: "",
-    description: "",
-    price: "",
-    tags: [],
+    images: [], // required 지만 빈 배열이어도 되는듯
+    name: "", // required
+    description: "", // required
+    price: "", // required
+    tags: [], // required
   });
 
   const [inputValueTag, setInputValueTag] = useState("");
+  const [errors, setErrors] = useState({ image: "", tag: "" }); // POST요청 에러까지 추후에 들어갈지도
 
   const handleChange = (e, category) => {
     setFormData((prev) => ({ ...prev, [category]: e.target.value }));
@@ -30,12 +31,21 @@ const AddItemPage = () => {
 
   const handleSubmitTag = (e) => {
     e.preventDefault();
+
     if (!inputValueTag) {
+      setErrors((prev) => ({ ...prev, tag: "태그를 입력하세요" }));
       return;
     }
+
+    if (formData.tags.includes(inputValueTag)) {
+      setErrors((prev) => ({ ...prev, tag: "태그가 이미 존재합니다" }));
+      return;
+    }
+
     const newTags = [...formData.tags, inputValueTag];
     setFormData((prev) => ({ ...prev, tags: newTags }));
     setInputValueTag("");
+    setErrors((prev) => ({ ...prev, tag: "" }));
   };
 
   const handleDeleteTag = (index) => {
@@ -47,7 +57,7 @@ const AddItemPage = () => {
     <div className="addItem-page-layout">
       <form className="addItem-form" onSubmit={handleSubmitAddItem}>
         <AddItemFormHeader />
-        <AddItemImage images={formData.images} />
+        <AddItemImage images={formData.images} error={errors.image} />
         <AddItemName
           value={formData.name}
           onChange={(e) => handleChange(e, "name")}
@@ -66,6 +76,7 @@ const AddItemPage = () => {
         <AddItemTag
           value={inputValueTag}
           onChange={(e) => setInputValueTag(e.target.value)}
+          error={errors.tag}
         />
       </form>
 

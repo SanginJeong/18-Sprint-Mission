@@ -34,7 +34,7 @@ const ProductAll = () => {
 
   if (isLoading) return <LoadingSpinner />;
 
-  if (isError) return <ErrorMessage error={error} />;
+  if (isError) return <ErrorMessage errorMessage={error.message} />;
   return (
     <>
       <ProductAllMenuBar

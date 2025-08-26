@@ -18,7 +18,7 @@ const ProductBest = () => {
 
   if (isLoading) return <LoadingSpinner />;
 
-  if (isError) return <ErrorMessage error={error} />;
+  if (isError) return <ErrorMessage errorMessage={error.message} />;
   return (
     <div className="productBest-layout">
       <h1 className="product-category-description">베스트 상품</h1>

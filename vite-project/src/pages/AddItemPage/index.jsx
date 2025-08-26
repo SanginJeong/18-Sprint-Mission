@@ -83,7 +83,7 @@ const AddItemPage = () => {
   return (
     <div className="addItem-page-layout">
       <form className="addItem-form" onSubmit={handleSubmitAddItem}>
-        <AddItemFormHeader />
+        <AddItemFormHeader formData={formData} />
         <AddItemImage
           image={previewImage}
           ref={fileInputRef}

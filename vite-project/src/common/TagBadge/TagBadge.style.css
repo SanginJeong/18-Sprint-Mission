@@ -14,14 +14,3 @@
   font-weight: 400;
   font-size: 16px;
 }
-
-.tag-delete-badge-btn {
-  background-color: var(--gray400);
-  color: #f9fafb;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}

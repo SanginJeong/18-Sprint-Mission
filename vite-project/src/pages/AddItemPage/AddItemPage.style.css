@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: 1206px;
+  padding-bottom: 50px;
 }
 
 .addItem-form {
@@ -33,8 +33,8 @@
 }
 
 .addItem-input,
-.addItem-textArea {
-  width: 100%;
+.addItem-textArea,
+.addItem-image-input {
   background-color: var(--gray100);
   padding: 16px 24px;
   border-radius: 12px;
@@ -44,7 +44,53 @@
   color: #1f2937;
 }
 
+.addItem-input,
+.addItem-textArea {
+  width: 100%;
+}
+
+.addItem-image-input {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--gray400);
+}
+
+.addItem-image-input,
+.addItem-image-card {
+  aspect-ratio: 1;
+  width: 282px;
+}
+
 .addItem-textArea {
   height: 282px;
   resize: none;
+}
+
+.addItem-image-area {
+  display: flex;
+  gap: 16px;
+}
+
+.addItem-image-card {
+  position: relative;
+}
+
+.addItem-image-card > button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .addItem-image-input,
+  .addItem-image-card {
+    width: 160px;
+  }
+  .addItem-image-area {
+    gap: 10px;
+  }
 }

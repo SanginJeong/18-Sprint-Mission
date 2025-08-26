@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./AddItemPage.style.css";
 import AddItemDescription from "./components/AddItemDescription";
 import AddItemFormHeader from "./components/AddItemFormHeader";
@@ -18,7 +18,34 @@ const AddItemPage = () => {
   });
 
   const [inputValueTag, setInputValueTag] = useState("");
+  const [previewImage, setPreviewImage] = useState("");
   const [errors, setErrors] = useState({ image: "", tag: "" }); // POST요청 에러까지 추후에 들어갈지도
+
+  const fileInputRef = useRef(null);
+
+  const handleChangeImage = (e) => {
+    if (previewImage) {
+      setErrors((prev) => ({
+        ...prev,
+        image: "이미지 파일은 1개만 등록할 수 있습니다",
+      }));
+      return;
+    }
+    const file = e.target.files[0];
+    const url = URL.createObjectURL(file);
+    setPreviewImage(url);
+    const newImages = [url];
+    setFormData((prev) => ({ ...prev, images: newImages }));
+  };
+
+  const handleDeleteImage = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+    setPreviewImage("");
+    setFormData((prev) => ({ ...prev, images: [] }));
+    setErrors((prev) => ({ ...prev, image: "" }));
+  };
 
   const handleChange = (e, category) => {
     setFormData((prev) => ({ ...prev, [category]: e.target.value }));
@@ -57,7 +84,13 @@ const AddItemPage = () => {
     <div className="addItem-page-layout">
       <form className="addItem-form" onSubmit={handleSubmitAddItem}>
         <AddItemFormHeader />
-        <AddItemImage images={formData.images} error={errors.image} />
+        <AddItemImage
+          image={previewImage}
+          ref={fileInputRef}
+          error={errors.image}
+          onChange={handleChangeImage}
+          onDelete={handleDeleteImage}
+        />
         <AddItemName
           value={formData.name}
           onChange={(e) => handleChange(e, "name")}

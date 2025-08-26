@@ -106,6 +106,17 @@ p {
   background-color: #9ca3af;
 }
 
+.ic-x-btn {
+  background-color: var(--gray400);
+  color: #f9fafb;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

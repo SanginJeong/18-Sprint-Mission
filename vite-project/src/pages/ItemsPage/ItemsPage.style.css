@@ -26,12 +26,6 @@
 
 .product-all-menus-btn {
   background-color: var(--primary100);
-  color: white;
-  padding: 12px 23px;
-  font-weight: 600;
-  font-size: 16px;
-  height: 42px;
-  border-radius: 8px;
 }
 
 .product-search-form {

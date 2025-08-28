@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 import "./Navbar.style.css";
 import { useMediaQuery } from "react-responsive";
 
@@ -10,6 +10,7 @@ const navLinks = [
 
 const Navbar = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const location = useLocation();
 
   return (
     <header className="header">
@@ -27,7 +28,16 @@ const Navbar = () => {
         <ul className="nav-links">
           {navLinks.map((link) => (
             <li key={link._id}>
-              <NavLink to={link.url}>{link.title}</NavLink>
+              <NavLink
+                to={link.url}
+                className={
+                  location.pathname === "/addItem" && link.url === "/items"
+                    ? "active"
+                    : ""
+                }
+              >
+                {link.title}
+              </NavLink>
             </li>
           ))}
         </ul>

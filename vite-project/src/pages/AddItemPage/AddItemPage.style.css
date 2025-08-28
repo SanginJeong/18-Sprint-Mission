@@ -1,0 +1,96 @@
+.addItem-page-layout {
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 50px;
+}
+
+.addItem-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.addItem-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addItem-form-header-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--gray800);
+}
+
+.addItem-form-submit-btn {
+  background-color: var(--primary100);
+}
+
+.addItem-form-submit-btn:disabled {
+  background-color: var(--gray400);
+}
+
+.addItem-input,
+.addItem-textArea,
+.addItem-image-input {
+  background-color: var(--gray100);
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 400;
+  font-size: 16px;
+  color: #1f2937;
+}
+
+.addItem-input,
+.addItem-textArea {
+  width: 100%;
+}
+
+.addItem-image-input {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--gray400);
+}
+
+.addItem-image-input,
+.addItem-image-card {
+  aspect-ratio: 1;
+  width: 282px;
+}
+
+.addItem-textArea {
+  height: 282px;
+  resize: none;
+}
+
+.addItem-image-area {
+  display: flex;
+  gap: 16px;
+}
+
+.addItem-image-card {
+  position: relative;
+}
+
+.addItem-image-card > button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .addItem-image-input,
+  .addItem-image-card {
+    width: 160px;
+  }
+  .addItem-image-area {
+    gap: 10px;
+  }
+}

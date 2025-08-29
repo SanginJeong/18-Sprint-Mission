@@ -21,7 +21,7 @@ const ProductBest = () => {
   if (isError) return <ErrorMessage errorMessage={error.message} />;
   return (
     <div className="productBest-layout">
-      <h1 className="product-category-description">베스트 상품</h1>
+      <h2 className="product-category-description">베스트 상품</h2>
       <ProductList products={bestProducts.list} className="product-best-list" />
     </div>
   );

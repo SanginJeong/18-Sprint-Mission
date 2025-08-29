@@ -18,7 +18,7 @@ const ProductAllMenuBar = ({
 
   return (
     <div className="product-all">
-      <h1 className="product-category-description">전체 상품</h1>
+      <h2 className="product-category-description">전체 상품</h2>
       <div className="product-all-topbar">
         <div className="product-all-menus">
           <form className="product-search-form">

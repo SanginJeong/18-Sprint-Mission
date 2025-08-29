@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import DropDown from "../../../../common/Dropdown";
 import { useMediaQuery } from "react-responsive";
 import { ORDER_BYS } from "../../../../constants/PRODUCTS";
+import { DROPDOWN_MENUS } from "../../../../constants/PRODUCTS";
 
 const ProductAllMenuBar = ({
   isOpenDropdown,
@@ -11,7 +12,6 @@ const ProductAllMenuBar = ({
 }) => {
   const navigate = useNavigate();
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const DROPDOWN_MENUS = Object.keys(ORDER_BYS);
   const selectedDropdownValue = DROPDOWN_MENUS.find(
     (key) => ORDER_BYS[key] === orderBy
   );

@@ -1,17 +1,8 @@
-import { useNavigate } from "react-router";
 import "./ProductCard.style.css";
 
 const ProductCard = ({ product, category }) => {
-  const navigate = useNavigate();
-
-  const handleClickProductCard = () => {
-    console.log(product.id);
-    // navigate("/Test");
-    navigate(`/items/${product.id}`);
-  };
-
   return (
-    <div className="product-card" onClick={handleClickProductCard}>
+    <div className="product-card">
       <img
         src={product.images[0] || "/images/none-img.jpeg"}
         alt="product-img"

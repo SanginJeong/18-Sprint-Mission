@@ -4,7 +4,7 @@ const AddProductDescription = ({ value, onChange }) => {
       <h4>상품 소개</h4>
       <textarea
         type="text"
-        className="addItem-textArea"
+        className="addProduct-textArea"
         placeholder="상품소개를 입력하세요"
         value={value}
         onChange={onChange}

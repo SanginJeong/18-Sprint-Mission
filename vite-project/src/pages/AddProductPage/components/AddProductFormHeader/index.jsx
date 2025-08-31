@@ -6,10 +6,10 @@ const AddProductFormHeader = ({ formData }) => {
     formData.tags.length > 0;
 
   return (
-    <div className="addItem-form-header">
-      <h3 className="addItem-form-header-title">상품 등록하기</h3>
+    <div className="addProduct-form-header">
+      <h3 className="addProduct-form-header-title">상품 등록하기</h3>
       <button
-        className="button btn-small-40 addItem-form-submit-btn"
+        className="button btn-small-40 addProduct-form-submit-btn"
         type="submit"
         disabled={!isDisabled}
       >

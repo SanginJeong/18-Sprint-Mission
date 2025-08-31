@@ -4,7 +4,7 @@ const AddProductName = ({ value, onChange }) => {
       <h4>상품명</h4>
       <input
         type="text"
-        className="addItem-input"
+        className="addProduct-input"
         placeholder="상품명을 입력하세요"
         value={value}
         onChange={onChange}

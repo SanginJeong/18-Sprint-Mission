@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "./AddItemPage.style.css";
+import "./AddProductPage.style.css";
 import AddProductDescription from "./components/AddProductDescription";
 import AddProductFormHeader from "./components/AddProductFormHeader";
 import AddProductImage from "./components/AddProductImage";
@@ -51,7 +51,7 @@ const AddProductPage = () => {
     setFormData((prev) => ({ ...prev, [category]: e.target.value }));
   };
 
-  const handleSubmitAddItem = (e) => {
+  const handleSubmitAddProduct = (e) => {
     e.preventDefault();
     console.log(formData);
   };
@@ -81,8 +81,8 @@ const AddProductPage = () => {
   };
 
   return (
-    <div className="addItem-page-layout">
-      <form className="addItem-form" onSubmit={handleSubmitAddItem}>
+    <div className="addProduct-page-layout">
+      <form className="addProduct-form" onSubmit={handleSubmitAddProduct}>
         <AddProductFormHeader formData={formData} />
         <AddProductImage
           image={previewImage}

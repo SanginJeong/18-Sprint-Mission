@@ -70,8 +70,10 @@ p {
 }
 
 .btn-medium {
+  width: 240px;
   height: 48px;
-  padding: 12px 71px;
+  padding: 12px 64px;
+  white-space: nowrap;
   border-radius: 40px;
   border: none;
   font-weight: 600;

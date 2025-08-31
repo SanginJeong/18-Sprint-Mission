@@ -1,4 +1,4 @@
-const AddItemDescription = ({ value, onChange }) => {
+const AddProductDescription = ({ value, onChange }) => {
   return (
     <div>
       <h4>상품 소개</h4>
@@ -13,4 +13,4 @@ const AddItemDescription = ({ value, onChange }) => {
   );
 };
 
-export default AddItemDescription;
+export default AddProductDescription;

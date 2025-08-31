@@ -1,6 +1,6 @@
 import ErrorMessage from "../../../../common/ErrorMessage";
 
-const AddItemImage = ({ ref, error, image, onChange, onDelete }) => {
+const AddProductImage = ({ ref, error, image, onChange, onDelete }) => {
   return (
     <div>
       <h4>상품 이미지</h4>
@@ -35,4 +35,4 @@ const AddItemImage = ({ ref, error, image, onChange, onDelete }) => {
   );
 };
 
-export default AddItemImage;
+export default AddProductImage;

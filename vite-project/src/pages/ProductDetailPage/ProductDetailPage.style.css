@@ -1,0 +1,20 @@
+.productDetail-page-layout {
+  margin-top: 94px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.productDetail-page-comments-area {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.back-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary100);
+  gap: 8px;
+}

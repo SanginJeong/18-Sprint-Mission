@@ -1,6 +1,4 @@
-import React from "react";
-
-const AddItemPrice = ({ value, onChange }) => {
+const AddProductPrice = ({ value, onChange }) => {
   return (
     <div>
       <h4>판매가격</h4>
@@ -15,4 +13,4 @@ const AddItemPrice = ({ value, onChange }) => {
   );
 };
 
-export default AddItemPrice;
+export default AddProductPrice;

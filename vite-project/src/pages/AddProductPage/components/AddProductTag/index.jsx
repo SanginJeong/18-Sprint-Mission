@@ -1,6 +1,6 @@
 import ErrorMessage from "../../../../common/ErrorMessage";
 
-const AddItemTag = ({ value, onChange, error }) => {
+const AddProductTag = ({ value, onChange, error }) => {
   return (
     <div>
       <h4>태그</h4>
@@ -16,4 +16,4 @@ const AddItemTag = ({ value, onChange, error }) => {
   );
 };
 
-export default AddItemTag;
+export default AddProductTag;

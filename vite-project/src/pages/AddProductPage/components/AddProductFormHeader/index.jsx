@@ -1,4 +1,4 @@
-const AddItemFormHeader = ({ formData }) => {
+const AddProductFormHeader = ({ formData }) => {
   const isDisabled =
     formData.name &&
     formData.price &&
@@ -19,4 +19,4 @@ const AddItemFormHeader = ({ formData }) => {
   );
 };
 
-export default AddItemFormHeader;
+export default AddProductFormHeader;

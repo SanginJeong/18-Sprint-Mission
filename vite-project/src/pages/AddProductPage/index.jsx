@@ -1,14 +1,14 @@
 import { useRef, useState } from "react";
 import "./AddItemPage.style.css";
-import AddItemDescription from "./components/AddItemDescription";
-import AddItemFormHeader from "./components/AddItemFormHeader";
-import AddItemImage from "./components/AddItemImage";
-import AddItemName from "./components/AddItemName";
-import AddItemPrice from "./components/AddItemPrice";
-import AddItemTag from "./components/AddItemTag";
+import AddProductDescription from "./components/AddProductDescription";
+import AddProductFormHeader from "./components/AddProductFormHeader";
+import AddProductImage from "./components/AddProductImage";
+import AddProductName from "./components/AddProductName";
+import AddProductPrice from "./components/AddProductPrice";
+import AddProductTag from "./components/AddProductTag";
 import TagList from "../../common/TagList";
 
-const AddItemPage = () => {
+const AddProductPage = () => {
   const [formData, setFormData] = useState({
     images: [], // required 지만 빈 배열이어도 되는듯
     name: "", // required
@@ -83,30 +83,30 @@ const AddItemPage = () => {
   return (
     <div className="addItem-page-layout">
       <form className="addItem-form" onSubmit={handleSubmitAddItem}>
-        <AddItemFormHeader formData={formData} />
-        <AddItemImage
+        <AddProductFormHeader formData={formData} />
+        <AddProductImage
           image={previewImage}
           ref={fileInputRef}
           error={errors.image}
           onChange={handleChangeImage}
           onDelete={handleDeleteImage}
         />
-        <AddItemName
+        <AddProductName
           value={formData.name}
           onChange={(e) => handleChange(e, "name")}
         />
-        <AddItemDescription
+        <AddProductDescription
           value={formData.description}
           onChange={(e) => handleChange(e, "description")}
         />
-        <AddItemPrice
+        <AddProductPrice
           value={formData.price}
           onChange={(e) => handleChange(e, "price")}
         />
       </form>
 
       <form onSubmit={handleSubmitTag}>
-        <AddItemTag
+        <AddProductTag
           value={inputValueTag}
           onChange={(e) => setInputValueTag(e.target.value)}
           error={errors.tag}
@@ -118,4 +118,4 @@ const AddItemPage = () => {
   );
 };
 
-export default AddItemPage;
+export default AddProductPage;

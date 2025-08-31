@@ -1,15 +1,14 @@
-import React from "react";
-import "./ItemsPage.style.css";
+import "./ProductsPage.style.css";
 import ProductBest from "./components/ProductBest";
 import ProductAll from "./components/ProductAll";
 
-const ItemsPage = () => {
+const ProductsPage = () => {
   return (
-    <div className="item-page-layout">
+    <div className="products-page-layout">
       <ProductBest />
       <ProductAll />
     </div>
   );
 };
 
-export default ItemsPage;
+export default ProductsPage;

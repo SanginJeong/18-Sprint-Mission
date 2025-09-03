@@ -19,7 +19,7 @@ function App() {
         </Route>
         <Route path="/addItem" element={<AddProductPage />} />
         {/* freeBoard :  link active 테스트를 위해 미리 만듦 */}
-        <Route path="/freeBoard" element={<FreeBoard />} />{" "}
+        <Route path="/freeBoard" element={<FreeBoard />} />
       </Route>
     </Routes>
   );

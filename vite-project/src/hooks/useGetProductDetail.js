@@ -7,7 +7,7 @@ const getProductDetail = ({ productId }) => {
 
 export const useGetProductDetailQuery = ({ productId }) => {
   return useQuery({
-    queryKey: ["getProductDetail"],
+    queryKey: ["getProductDetail", productId],
     queryFn: () => getProductDetail({ productId }),
     staleTime: 300000,
     select: (response) => response.data,

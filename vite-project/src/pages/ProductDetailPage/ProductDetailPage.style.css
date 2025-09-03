@@ -104,28 +104,6 @@
   justify-content: space-between;
 }
 
-.product-info-owner-left {
-  display: flex;
-  gap: 16px;
-}
-
-.product-info-owner-createdAt {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  font-size: 14px;
-}
-
-.product-info-owner {
-  color: var(--secondary600);
-  font-weight: 500;
-}
-
-.product-info-createdAt {
-  color: var(--gray400);
-  font-weight: 400;
-}
-
 .product-info-owner-right {
   display: flex;
   align-items: center;
@@ -161,6 +139,23 @@
 
 .add-question-btn {
   background-color: var(--primary100);
+}
+
+.productDetail-comment-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--secondary800);
+}
+
+.productDetail-comment-content-userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0px;
+  border-bottom: 1px solid var(--secondary300);
 }
 
 @media screen and (max-width: 1199px) {

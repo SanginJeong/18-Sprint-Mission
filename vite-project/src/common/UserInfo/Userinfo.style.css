@@ -1,0 +1,22 @@
+.userInfo-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userInfo-badge-name-date {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 14px;
+}
+
+.userInfo-badge-name {
+  color: var(--secondary600);
+  font-weight: 500;
+}
+
+.userInfo-badge-createdAt {
+  color: var(--gray400);
+  font-weight: 400;
+}

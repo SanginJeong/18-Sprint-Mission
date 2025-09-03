@@ -1,6 +1,7 @@
 import ErrorMessage from "../../../../common/ErrorMessage";
 import LoadingSpinner from "../../../../common/LoadingSpinner";
 import TagList from "../../../../common/TagList";
+import UserInfo from "../../../../common/UserInfo";
 import { useGetProductDetailQuery } from "../../../../hooks/useGetProductDetail";
 
 const ProductDetail = ({ productId }) => {
@@ -52,15 +53,7 @@ const ProductDetail = ({ productId }) => {
         </div>
 
         <div className="product-info-owner-area">
-          <div className="product-info-owner-left">
-            <img src="/images/nav-panda.svg" alt="판다 이미지" />
-            <div className="product-info-owner-createdAt">
-              <span className="product-info-owner">
-                {productInfo.ownerNickname}
-              </span>
-              <span className="product-info-createdAt">{createdAt}</span>
-            </div>
-          </div>
+          <UserInfo name={productInfo.ownerNickname} date={createdAt} />
           <span className="product-info-owner-right">
             <img
               className="product-info-heart"

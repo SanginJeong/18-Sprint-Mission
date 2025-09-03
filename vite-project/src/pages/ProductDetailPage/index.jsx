@@ -16,7 +16,9 @@ const ProductDetailPage = () => {
         <ProductQuestion productId={productId} />
         <ProductComments productId={productId} />
       </div>
-      <ProductBackButton />
+      <div className="productDetail-page-back-btn-area">
+        <ProductBackButton />
+      </div>
     </div>
   );
 };

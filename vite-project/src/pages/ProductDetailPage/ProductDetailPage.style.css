@@ -179,6 +179,12 @@
   color: var(--secondary500);
 }
 
+.productDetail-page-back-btn-area {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
 @media screen and (max-width: 1199px) {
   .productDetail-info-left {
     width: 340px;

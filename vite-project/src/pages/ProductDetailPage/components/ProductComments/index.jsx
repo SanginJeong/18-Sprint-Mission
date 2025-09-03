@@ -1,11 +1,14 @@
 import ErrorMessage from "../../../../common/ErrorMessage";
 import LoadingSpinner from "../../../../common/LoadingSpinner";
+import UpdateModeButtons from "./UpdateModeButtons";
+import CommentDropdown from "./CommentDropdown";
 import UserInfo from "../../../../common/UserInfo";
-import DropDown from "../../../../common/Dropdown";
 import { useGetProductCommentsQuery } from "../../../../hooks/useGetProductComments";
+import { useDeleteProductCommentQuery } from "../../../../hooks/useDeleteProductCommentQuery";
 import { useState } from "react";
+import { getTimeAgo } from "../../../../utils/getTimeAgo";
 
-const ProductComments = ({ productId }) => {
+const ProductComments = ({ productId, isUpdateMode, setIsUpdateMode }) => {
   const [dropdownMenus, setDropdownMenus] = useState({});
 
   const { data, isLoading, isError, error } = useGetProductCommentsQuery({
@@ -13,18 +16,20 @@ const ProductComments = ({ productId }) => {
     limit: 3,
   });
 
-  const timeAgo = (updatedAt) => {
-    const now = new Date();
-    const updated = new Date(updatedAt);
-    const diffMs = now - updated;
-    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const { mutate: deleteProductComment } = useDeleteProductCommentQuery();
 
-    if (diffHours < 24) {
-      return `${diffHours}시간 전`;
-    } else {
-      return `${diffDays}일 전`;
-    }
+  const handleDropdownMenus = (index, boolean) => {
+    setDropdownMenus((prev) => ({ ...prev, [index]: boolean }));
+  };
+
+  const handleIsUpdateMode = (index, boolean) => {
+    setIsUpdateMode((prev) => ({ ...prev, [index]: boolean }));
+    setDropdownMenus((prev) => ({ ...prev, [index]: false }));
+  };
+
+  const handleDeleteComment = (commentId, index) => {
+    deleteProductComment(commentId);
+    setDropdownMenus((prev) => ({ ...prev, [index]: false }));
   };
 
   if (isLoading) {
@@ -36,39 +41,43 @@ const ProductComments = ({ productId }) => {
   if (isError) {
     return <ErrorMessage errorMessage={error.message} />;
   }
+
   return (
     <ul className="productDetail-comment-list">
       {comments.map((comment, index) => (
-        <li className="productDetail-comment-content-userInfo">
+        <li key={comment.id} className="productDetail-comment-content-userInfo">
           <div className="productDetail-comment-content">
-            <p>{comment.content}</p>
-            <DropDown>
-              <DropDown.header>
-                <button
-                  className="button"
-                  onClick={() =>
-                    setDropdownMenus((prev) => ({
-                      ...prev,
-                      [index]: !dropdownMenus[index],
-                    }))
-                  }
-                >
-                  <img src="/images/ic_kebab.svg" alt="수정 이미지" />
-                </button>
-              </DropDown.header>
-              <DropDown.menus isOpen={dropdownMenus[index]}>
-                <div className="productDetail-comment-dropdown">
-                  <button className="button">수정하기</button>
-                  <button className="button">삭제하기</button>
+            {isUpdateMode[index] ? (
+              <>
+                <textarea
+                  className="productDetail-comment-textarea"
+                  value={comment.content}
+                />
+                <div>
+                  <UpdateModeButtons
+                    onUpdate={() => handleIsUpdateMode(index, false)}
+                  />
                 </div>
-              </DropDown.menus>
-            </DropDown>
+              </>
+            ) : (
+              <>
+                <p>{comment.content}</p>
+                <CommentDropdown
+                  isOpen={dropdownMenus[index]}
+                  setIsOpen={() =>
+                    handleDropdownMenus(index, !dropdownMenus[index])
+                  }
+                  onDelete={() => handleDeleteComment(comment.id, index)}
+                  onUpdate={() => handleIsUpdateMode(index, true)}
+                />
+              </>
+            )}
           </div>
 
           <UserInfo
             name={comment.writer.nickname}
             image={comment.writer.image}
-            date={timeAgo(comment.updatedAt)}
+            date={getTimeAgo(comment.updatedAt)}
           />
         </li>
       ))}

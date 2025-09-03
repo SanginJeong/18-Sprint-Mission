@@ -127,6 +127,12 @@ p {
   align-items: center;
 }
 
+.kebab-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

@@ -148,6 +148,7 @@
   font-weight: 400;
   font-size: 14px;
   color: var(--secondary800);
+  position: relative;
 }
 
 .productDetail-comment-content-userInfo {
@@ -183,6 +184,31 @@
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
+}
+
+.product-info-update-btn-area {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  width: 178px;
+  right: -25px;
+  top: 80px;
+}
+
+.product-info-update-btn {
+  background-color: var(--primary100);
+}
+
+.productDetail-comment-textarea {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  resize: none;
+  padding: 12px 24px;
+  margin-bottom: 10px;
+  background-color: var(--gray100);
+  font-size: 16px;
+  font-weight: 400;
 }
 
 @media screen and (max-width: 1199px) {

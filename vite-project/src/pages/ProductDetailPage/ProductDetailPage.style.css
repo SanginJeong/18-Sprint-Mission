@@ -158,6 +158,27 @@
   border-bottom: 1px solid var(--secondary300);
 }
 
+.productDetail-comment-dropdown {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid var(--gray300);
+  width: 139px;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  z-index: 2;
+}
+
+.productDetail-comment-dropdown button {
+  padding-top: 16px;
+  padding-bottom: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--secondary500);
+}
+
 @media screen and (max-width: 1199px) {
   .productDetail-info-left {
     width: 340px;

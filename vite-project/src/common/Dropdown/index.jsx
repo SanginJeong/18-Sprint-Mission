@@ -1,15 +1,9 @@
-import React, { useState } from "react";
-
 const DropDown = ({ children }) => {
   return <div className="dropdown">{children}</div>;
 };
 
-DropDown.header = ({ children, onClick }) => {
-  return (
-    <button onClick={onClick} className="button dropdown-btn">
-      {children}
-    </button>
-  );
+DropDown.header = ({ children }) => {
+  return <div>{children}</div>;
 };
 
 DropDown.menus = ({ children, isOpen }) => {

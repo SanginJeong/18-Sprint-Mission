@@ -1,9 +1,13 @@
 import ErrorMessage from "../../../../common/ErrorMessage";
 import LoadingSpinner from "../../../../common/LoadingSpinner";
 import UserInfo from "../../../../common/UserInfo";
+import DropDown from "../../../../common/Dropdown";
 import { useGetProductCommentsQuery } from "../../../../hooks/useGetProductComments";
+import { useState } from "react";
 
 const ProductComments = ({ productId }) => {
+  const [dropdownMenus, setDropdownMenus] = useState({});
+
   const { data, isLoading, isError, error } = useGetProductCommentsQuery({
     productId,
     limit: 3,
@@ -34,13 +38,31 @@ const ProductComments = ({ productId }) => {
   }
   return (
     <ul className="productDetail-comment-list">
-      {comments.map((comment) => (
+      {comments.map((comment, index) => (
         <li className="productDetail-comment-content-userInfo">
           <div className="productDetail-comment-content">
             <p>{comment.content}</p>
-            <button className="button">
-              <img src="/images/ic_kebab.svg" alt="수정 이미지" />
-            </button>
+            <DropDown>
+              <DropDown.header>
+                <button
+                  className="button"
+                  onClick={() =>
+                    setDropdownMenus((prev) => ({
+                      ...prev,
+                      [index]: !dropdownMenus[index],
+                    }))
+                  }
+                >
+                  <img src="/images/ic_kebab.svg" alt="수정 이미지" />
+                </button>
+              </DropDown.header>
+              <DropDown.menus isOpen={dropdownMenus[index]}>
+                <div className="productDetail-comment-dropdown">
+                  <button className="button">수정하기</button>
+                  <button className="button">삭제하기</button>
+                </div>
+              </DropDown.menus>
+            </DropDown>
           </div>
 
           <UserInfo

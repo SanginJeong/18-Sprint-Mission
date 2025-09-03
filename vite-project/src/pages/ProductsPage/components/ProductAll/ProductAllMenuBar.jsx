@@ -41,14 +41,22 @@ const ProductAllMenuBar = ({
           </button>
         </div>
         <DropDown>
-          <DropDown.header onClick={() => setIsOpenDropdown(!isOpenDropdown)}>
+          <DropDown.header>
             {isMobile ? (
-              <img src="/images/ic_sort.svg" alt="sort-img" />
+              <button
+                onClick={() => setIsOpenDropdown(!isOpenDropdown)}
+                className="button dropdown-btn"
+              >
+                <img src="/images/ic_sort.svg" alt="sort-img" />
+              </button>
             ) : (
-              <>
+              <button
+                onClick={() => setIsOpenDropdown(!isOpenDropdown)}
+                className="button dropdown-btn"
+              >
                 <p>{selectedDropdownValue}</p>
                 <img src="/images/arrow_down.svg" alt="arrow-down" />
-              </>
+              </button>
             )}
           </DropDown.header>
 

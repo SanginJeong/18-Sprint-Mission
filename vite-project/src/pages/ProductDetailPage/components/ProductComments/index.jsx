@@ -3,6 +3,7 @@ import LoadingSpinner from "../../../../common/LoadingSpinner";
 import UpdateModeButtons from "./UpdateModeButtons";
 import CommentDropdown from "./CommentDropdown";
 import UserInfo from "../../../../common/UserInfo";
+import EmptyComment from "./EmptyComment";
 import { useGetProductCommentsQuery } from "../../../../hooks/useGetProductComments";
 import { useDeleteProductCommentQuery } from "../../../../hooks/useDeleteProductCommentQuery";
 import { useState } from "react";
@@ -36,10 +37,14 @@ const ProductComments = ({ productId, isUpdateMode, setIsUpdateMode }) => {
     return <LoadingSpinner />;
   }
 
-  const comments = data.list;
-
   if (isError) {
     return <ErrorMessage errorMessage={error.message} />;
+  }
+
+  const comments = data.list;
+
+  if (!comments) {
+    return <EmptyComment />;
   }
 
   return (

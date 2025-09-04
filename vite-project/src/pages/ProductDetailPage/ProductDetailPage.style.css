@@ -211,6 +211,18 @@
   font-weight: 400;
 }
 
+.empty-img-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-img-area > span {
+  color: var(--gray400);
+  font-size: 16px;
+  font-weight: 400;
+}
+
 @media screen and (max-width: 1199px) {
   .productDetail-info-left {
     width: 340px;

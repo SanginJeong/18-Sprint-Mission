@@ -1,4 +1,4 @@
-import "./UserInfo.style.css";
+import "./Userinfo.style.css";
 
 const UserInfo = ({ image, name, date }) => {
   const imageSrc = image || "/images/nav-panda.svg";

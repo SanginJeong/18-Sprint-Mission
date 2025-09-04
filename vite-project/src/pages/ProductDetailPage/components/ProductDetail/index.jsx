@@ -27,11 +27,13 @@ const ProductDetail = () => {
 
   return (
     <div className="productDetail-info-layout">
-      <img
-        className="productDetail-info-left"
-        src={productInfo.images[0]}
-        alt="상품 이미지"
-      />
+      <div className="productDetail-info-left">
+        <img
+          className="productDetail-img"
+          src={productInfo.images[0]}
+          alt="상품 이미지"
+        />
+      </div>
 
       <div className="productDetail-info-right">
         <div className="productDetail-info-right-top">

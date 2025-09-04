@@ -40,7 +40,7 @@ const ProductAllMenuBar = ({
             상품 등록하기
           </button>
         </div>
-        <DropDown>
+        <DropDown className={"dropdown-sort"}>
           <DropDown.header>
             {isMobile ? (
               <button

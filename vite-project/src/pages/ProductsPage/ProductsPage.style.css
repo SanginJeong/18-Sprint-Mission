@@ -83,8 +83,6 @@
 
 .dropdown-menus {
   position: absolute;
-  left: 0;
-  top: 50px;
 }
 
 .dropdown-menu {
@@ -135,7 +133,7 @@
     top: 58px;
   }
 
-  .dropdown {
+  .dropdown.dropdown-sort {
     position: absolute;
     right: 0;
     top: 58px;
@@ -147,7 +145,7 @@
     padding: 9px;
   }
 
-  .dropdown-menus {
+  .dropdown-menus.dropdown-sort {
     left: -88px;
   }
 }

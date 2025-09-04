@@ -21,7 +21,7 @@ const ProductQuestion = () => {
       <form onSubmit={handleSubmitQuestion} className="add-question-btn-area">
         <button
           className="button btn-small-40 add-question-btn"
-          disabled={!textAreaValue}
+          disabled={!textAreaValue.trim()}
         >
           등록
         </button>

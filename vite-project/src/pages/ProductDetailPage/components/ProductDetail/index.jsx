@@ -3,8 +3,13 @@ import LoadingSpinner from "../../../../common/LoadingSpinner";
 import TagList from "../../../../common/TagList";
 import UserInfo from "../../../../common/UserInfo";
 import { useGetProductDetailQuery } from "../../../../hooks/useGetProductDetail";
+import { useParams } from "react-router";
+import { getDateOnly } from "../../../../utils/getDateOnly";
 
-const ProductDetail = ({ productId }) => {
+const ProductDetail = () => {
+  const params = useParams();
+  const { productId } = params;
+
   const {
     data: productInfo,
     isLoading,
@@ -16,9 +21,9 @@ const ProductDetail = ({ productId }) => {
 
   if (isLoading) return <LoadingSpinner />;
 
-  const createdAt = productInfo.createdAt.split("T")[0];
-
   if (isError) return <ErrorMessage errorMessage={error.message} />;
+
+  const createdAt = getDateOnly(productInfo.createdAt);
 
   return (
     <div className="productDetail-info-layout">

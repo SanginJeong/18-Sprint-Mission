@@ -1,4 +1,4 @@
-import DropDown from "../../../../../common/Dropdown";
+import DropDown from "../../../../../../common/Dropdown";
 
 const CommentDropdown = ({ isOpen, setIsOpen, onDelete, onUpdate }) => {
   return (

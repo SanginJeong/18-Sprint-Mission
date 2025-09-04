@@ -47,13 +47,13 @@ const AddProductPage = () => {
     setErrors((prev) => ({ ...prev, image: "" }));
   };
 
-  const handleChange = (e, category) => {
-    setFormData((prev) => ({ ...prev, [category]: e.target.value }));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmitAddProduct = (e) => {
     e.preventDefault();
-    console.log(formData);
   };
 
   const handleSubmitTag = (e) => {
@@ -91,18 +91,12 @@ const AddProductPage = () => {
           onChange={handleChangeImage}
           onDelete={handleDeleteImage}
         />
-        <AddProductName
-          value={formData.name}
-          onChange={(e) => handleChange(e, "name")}
-        />
+        <AddProductName value={formData.name} onChange={handleChange} />
         <AddProductDescription
           value={formData.description}
-          onChange={(e) => handleChange(e, "description")}
+          onChange={handleChange}
         />
-        <AddProductPrice
-          value={formData.price}
-          onChange={(e) => handleChange(e, "price")}
-        />
+        <AddProductPrice value={formData.price} onChange={handleChange} />
       </form>
 
       <form onSubmit={handleSubmitTag}>

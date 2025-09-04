@@ -3,6 +3,7 @@ const AddProductPrice = ({ value, onChange }) => {
     <div>
       <h4>판매가격</h4>
       <input
+        name="price"
         type="number"
         className="addProduct-input"
         placeholder="판매가격을 입력하세요"

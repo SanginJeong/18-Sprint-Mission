@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router";
 import ProductCard from "../ProductCard";
 const ProductList = ({ products, className }) => {
@@ -6,7 +5,7 @@ const ProductList = ({ products, className }) => {
     <ul className={className}>
       {products?.map((product) => (
         <li key={product.id}>
-          <Link>
+          <Link to={`${product.id}`}>
             <ProductCard product={product} category="all-card-img" />
           </Link>
         </li>

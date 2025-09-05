@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import instance from "../api/axiosInstance";
 
-const getProducts = async ({ page = 1, orderBy = "recent", pageSize = 10 }) => {
-  return await instance.get("/products", {
+const getProducts = ({ page = 1, orderBy = "recent", pageSize = 10 }) => {
+  return instance.get("/products", {
     params: { page, orderBy, pageSize },
   });
 };

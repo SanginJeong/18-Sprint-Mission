@@ -1,0 +1,15 @@
+.nav-main-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-main-left .nav-link-home {
+  font-weight: 700;
+  color: var(--primary100);
+  font-size: 25px;
+}
+
+.nav-main-right .nav-login-btn {
+  background-color: var(--primary100);
+}

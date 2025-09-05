@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink, useLocation } from "react-router";
-import "./Navbar.style.css";
+import "./ItemsNavbar.style.css";
 import { useMediaQuery } from "react-responsive";
 
 const navLinks = [
@@ -8,7 +8,7 @@ const navLinks = [
   { _id: 2, title: "중고마켓", url: "/items" },
 ];
 
-const Navbar = () => {
+const ItemsNavbar = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const location = useLocation();
 
@@ -52,4 +52,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default ItemsNavbar;

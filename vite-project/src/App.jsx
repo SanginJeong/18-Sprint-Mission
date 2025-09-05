@@ -5,14 +5,13 @@ import AddProductPage from "./pages/AddProductPage";
 import Layout from "./layout/Layout";
 import FreeBoard from "./pages/FreeBoardPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
     <Routes>
-      {/* 처음 시작 시 /items 로 이동 */}
-      <Route path="/" element={<Navigate to="/items" />} />
-
       <Route element={<Layout />}>
+        <Route path="/" element={<HomePage />} />
         <Route path="/items">
           <Route index element={<ProductsPage />} />
           <Route path=":productId" element={<ProductDetailPage />} />

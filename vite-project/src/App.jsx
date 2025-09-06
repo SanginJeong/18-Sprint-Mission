@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { Route, Routes, Navigate } from "react-router";
+import ProductsPage from "./pages/ProductsPage";
+import AddProductPage from "./pages/AddProductPage";
+import Layout from "./layout/Layout";
+import FreeBoard from "./pages/FreeBoardPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Routes>
+      {/* 처음 시작 시 /items 로 이동 */}
+      <Route path="/" element={<Navigate to="/items" />} />
+
+      <Route element={<Layout />}>
+        <Route path="/items">
+          <Route index element={<ProductsPage />} />
+          <Route path=":productId" element={<ProductDetailPage />} />
+        </Route>
+        <Route path="/addItem" element={<AddProductPage />} />
+        {/* freeBoard :  link active 테스트를 위해 미리 만듦 */}
+        <Route path="/freeBoard" element={<FreeBoard />} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+export default App;

@@ -12,16 +12,20 @@
 .landing {
   background-color: #cfe5ff;
   position: absolute;
-  width: 100%;
   left: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.landing.landing-top {
   top: 70px;
   height: 540px;
 }
 
-.landing-top {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+.landing.landing-bottom {
+  height: 540px;
 }
 
 .landing img {
@@ -29,8 +33,9 @@
   width: 100%;
 }
 
-.landing-top .landing-body {
+.landing .landing-body {
   display: flex;
+  gap: 20px;
 }
 
 .landing-top-btn {
@@ -79,19 +84,23 @@
 }
 
 @media screen and (max-width: 1199px) {
-  .landing {
+  .landing.landing-top,
+  .landing.landing-bottom {
     height: 771px;
   }
 
-  .landing-top {
+  .landing.landing-top,
+  .landing.landing-bottom {
     align-items: normal;
   }
 
-  .landing-top .landing-body {
+  .landing-top .landing-body,
+  .landing-bottom .landing-body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
   }
+
   .landing-left {
     align-items: center;
     padding-top: 70px;
@@ -103,6 +112,11 @@
 
   .section.hot-item {
     margin-top: 800px;
+  }
+
+  .landing.landing-bottom .description-area {
+    flex-direction: column;
+    align-items: center;
   }
 }
 

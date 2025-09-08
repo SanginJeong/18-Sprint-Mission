@@ -1,7 +1,6 @@
 import "./HomePage.style.css";
 import Footer from "./components/Footer";
-import LandingBottom from "./components/LandingBottom";
-import LandingTop from "./components/LandingTop";
+import { LandingTop, LandingBottom } from "./components/Landing";
 import {
   SectionSearch,
   SectionHotItem,

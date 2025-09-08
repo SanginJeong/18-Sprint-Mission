@@ -12,8 +12,8 @@ const LandingTop = () => {
       <div className="landing-body">
         <div className="landing-left">
           <div className="description-area">
-            <span className="homepage-description">일상의 모든 물건을</span>
-            <span className="homepage-description">거래해 보세요</span>
+            <span className="description">일상의 모든 물건을</span>
+            <span className="description">거래해 보세요</span>
           </div>
           <div>
             <button

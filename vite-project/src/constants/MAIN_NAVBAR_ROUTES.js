@@ -1,1 +1,1 @@
-export const MAIN_NAVBAR_ROUTES = ["/", "/login", "/signup"];
+export const MAIN_NAVBAR_ROUTES = ["/"];

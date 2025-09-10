@@ -1,3 +1,4 @@
+import MainNavbar from "../../common/MainNavbar";
 import "./HomePage.style.css";
 import Footer from "./components/Footer";
 import { LandingTop, LandingBottom } from "./components/Landing";
@@ -10,14 +11,18 @@ import {
 const HomePage = () => {
   return (
     <>
-      <main className="homepage-layout">
-        <LandingTop />
-        <SectionHotItem />
-        <SectionSearch />
-        <SectionRegister />
-        <LandingBottom />
-      </main>
-
+      <MainNavbar />
+      <LandingTop />
+      <div className="wrap">
+        <div className="container">
+          <main>
+            <SectionHotItem />
+            <SectionSearch />
+            <SectionRegister />
+          </main>
+        </div>
+      </div>
+      <LandingBottom />
       <Footer />
     </>
   );

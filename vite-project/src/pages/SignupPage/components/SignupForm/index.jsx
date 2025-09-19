@@ -70,7 +70,7 @@ const SignupForm = () => {
         onChange={handleChangeValue}
         onBlur={handleBlur}
       />
-      <ErrorMessage errorMessage={errors.email} />
+      {errors.email && <ErrorMessage errorMessage={errors.email} />}
 
       <label>닉네임</label>
       <input
@@ -81,7 +81,7 @@ const SignupForm = () => {
         onChange={handleChangeValue}
         onBlur={handleBlur}
       />
-      <ErrorMessage errorMessage={errors.nickname} />
+      {errors.nickname && <ErrorMessage errorMessage={errors.nickname} />}
 
       <label>비밀번호</label>
       <div className="password-area">
@@ -105,7 +105,7 @@ const SignupForm = () => {
           />
         </button>
       </div>
-      <ErrorMessage errorMessage={errors.password} />
+      {errors.password && <ErrorMessage errorMessage={errors.password} />}
 
       <label>비밀번호 확인</label>
       <div className="password-area">
@@ -131,7 +131,9 @@ const SignupForm = () => {
           />
         </button>
       </div>
-      <ErrorMessage errorMessage={errors.passwordCheck} />
+      {errors.passwordCheck && (
+        <ErrorMessage errorMessage={errors.passwordCheck} />
+      )}
 
       <button
         onClick={handleSubmit}

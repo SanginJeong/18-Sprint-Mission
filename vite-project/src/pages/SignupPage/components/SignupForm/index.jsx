@@ -2,6 +2,8 @@ import { useState } from "react";
 import ImgVisibilityOn from "/images/btn_visibility_on.svg";
 import ImgVisibilityOff from "/images/btn_visibility_off.svg";
 import { useNavigate } from "react-router";
+import { getValidationForm } from "../../../../utils/getValidationForm";
+import ErrorMessage from "../../../../common/ErrorMessage";
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -9,7 +11,15 @@ const SignupForm = () => {
     password: false,
     passwordCheck: false,
   });
+
   const [signupForm, setSignupForm] = useState({
+    email: "",
+    nickname: "",
+    password: "",
+    passwordCheck: "",
+  });
+
+  const [errors, setErrors] = useState({
     email: "",
     nickname: "",
     password: "",
@@ -20,7 +30,11 @@ const SignupForm = () => {
     signupForm.email &&
     signupForm.nickname &&
     signupForm.password &&
-    signupForm.passwordCheck
+    signupForm.passwordCheck &&
+    !errors.email &&
+    !errors.nickname &&
+    !errors.password &&
+    !errors.passwordCheck
   );
 
   const handleVisibility = (e) => {
@@ -38,6 +52,13 @@ const SignupForm = () => {
     setSignupForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+
+    const errorMessage = getValidationForm(name, value, signupForm);
+    setErrors((prev) => ({ ...prev, [name]: errorMessage }));
+  };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <label>이메일</label>
@@ -47,7 +68,9 @@ const SignupForm = () => {
         placeholder="이메일을 입력해주세요"
         value={signupForm.email}
         onChange={handleChangeValue}
+        onBlur={handleBlur}
       />
+      <ErrorMessage errorMessage={errors.email} />
 
       <label>닉네임</label>
       <input
@@ -56,7 +79,9 @@ const SignupForm = () => {
         placeholder="닉네임을 입력해주세요"
         value={signupForm.nickname}
         onChange={handleChangeValue}
+        onBlur={handleBlur}
       />
+      <ErrorMessage errorMessage={errors.nickname} />
 
       <label>비밀번호</label>
       <div className="password-area">
@@ -66,6 +91,7 @@ const SignupForm = () => {
           type={isVisibility.password ? "text" : "password"}
           placeholder="비밀번호를 입력해주세요"
           onChange={handleChangeValue}
+          onBlur={handleBlur}
         />
         <button
           onClick={handleVisibility}
@@ -79,6 +105,7 @@ const SignupForm = () => {
           />
         </button>
       </div>
+      <ErrorMessage errorMessage={errors.password} />
 
       <label>비밀번호 확인</label>
       <div className="password-area">
@@ -88,6 +115,7 @@ const SignupForm = () => {
           type={isVisibility.passwordCheck ? "text" : "password"}
           placeholder="비밀번호를 다시 한 번 입력해주세요"
           onChange={handleChangeValue}
+          onBlur={handleBlur}
         />
         <button
           onClick={handleVisibility}
@@ -103,6 +131,7 @@ const SignupForm = () => {
           />
         </button>
       </div>
+      <ErrorMessage errorMessage={errors.passwordCheck} />
 
       <button
         onClick={handleSubmit}

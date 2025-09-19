@@ -3,6 +3,7 @@ import ImgVisibilityOn from "/images/btn_visibility_on.svg";
 import ImgVisibilityOff from "/images/btn_visibility_off.svg";
 import { useNavigate } from "react-router";
 import ErrorMessage from "../../../../common/ErrorMessage";
+import { getValidationForm } from "../../../../utils/getValidationForm";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -40,28 +41,11 @@ const LoginForm = () => {
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
-    switch (name) {
-      case "email":
-        if (!/\S+@\S+\.\S+/.test(value)) {
-          setErrors((prev) => ({
-            ...prev,
-            [name]: "이메일 형식이 올바르지 않습니다",
-          }));
-        } else {
-          setErrors((prev) => ({ ...prev, [name]: "" }));
-        }
-        break;
-      case "password":
-        if (value.length < 8) {
-          setErrors((prev) => ({
-            ...prev,
-            [name]: "비밀번호를 8글자 이상 입력해주세요",
-          }));
-        } else {
-          setErrors((prev) => ({ ...prev, [name]: "" }));
-        }
-    }
+    const errorMessage = getValidationForm(name, value);
+
+    setErrors((prev) => ({ ...prev, [name]: errorMessage }));
   };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <label>이메일</label>

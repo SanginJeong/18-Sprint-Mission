@@ -1,11 +1,13 @@
-.login-wrap {
+.login-wrap,
+.signup-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 100px 0px;
 }
 
-.login-page-layout {
+.login-page-layout,
+.signup-page-layout {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -14,22 +16,26 @@
   width: 640px;
 }
 
-.login-page-layout .form {
+.login-page-layout .form,
+.signup-page-layout .form {
   display: flex;
   flex-direction: column;
   gap: 24px;
   width: 100%;
 }
 
-.login-page-layout .form .form-btn {
+.login-page-layout .form .form-btn,
+.signup-page-layout .form .form-btn {
   background-color: var(--primary100);
 }
 
-.login-page-layout .form .form-btn:disabled {
+.login-page-layout .form .form-btn:disabled,
+.signup-page-layout .form .form-btn:disabled {
   background-color: #9ca3af;
 }
 
-.login-page-layout .form input {
+.login-page-layout .form input,
+.signup-page-layout .form input {
   padding: 16px 24px;
   background-color: var(--gray100);
   border: none;
@@ -37,7 +43,8 @@
   width: 100%;
 }
 
-.login-page-layout .form label {
+.login-page-layout .form label,
+.signup-page-layout .form label {
   font-weight: 700;
   font-size: 18px;
   color: var(--secondary800);

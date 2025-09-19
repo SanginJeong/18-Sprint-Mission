@@ -4,7 +4,7 @@
   gap: 10px;
 }
 
-.nav-main-left .nav-link-home {
+.nav-main-left a {
   font-weight: 700;
   color: var(--primary100);
   font-size: 25px;

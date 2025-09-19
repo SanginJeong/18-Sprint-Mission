@@ -1,3 +1,4 @@
+import Logo from "../Logo";
 import "./MainNavbar.style.css";
 import { Link, useNavigate } from "react-router";
 
@@ -11,12 +12,7 @@ const MainNavbar = () => {
   return (
     <header className="header">
       <nav className="nav">
-        <div className="nav-main-left">
-          <img src="/images/panda-face.svg" alt="메인 판다 얼굴" />
-          <Link className="nav-link-home" to="/">
-            판다마켓
-          </Link>
-        </div>
+        <Logo className={"nav-main-left"} />
 
         <div className="nav-main-right">
           <button

@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router";
+import { Outlet } from "react-router";
 import ItemsNavbar from "../common/ItemsNavbar";
 
 const Layout = () => {

@@ -6,10 +6,7 @@ const TagList = ({ tags, onDelete }) => {
     <ul className="tag-area">
       {tags?.map((tag, index) => (
         <li key={tag}>
-          <TagBadge
-            name={tag}
-            onDelete={onDelete ? () => onDelete(index) : undefined}
-          />
+          <TagBadge name={tag} onDelete={onDelete && (() => onDelete(index))} />
         </li>
       ))}
     </ul>

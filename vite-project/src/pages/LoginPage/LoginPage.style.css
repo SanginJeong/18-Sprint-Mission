@@ -131,3 +131,13 @@
   font-weight: 500;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 767px) {
+  .form-logo a {
+    font-size: 55px;
+  }
+  .form-logo img {
+    width: 93px;
+    height: 93px;
+  }
+}

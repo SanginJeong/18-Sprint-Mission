@@ -2,6 +2,7 @@ import { useState } from "react";
 import ImgVisibilityOn from "/images/btn_visibility_on.svg";
 import ImgVisibilityOff from "/images/btn_visibility_off.svg";
 import { useNavigate } from "react-router";
+import ErrorMessage from "../../../../common/ErrorMessage";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -11,7 +12,17 @@ const LoginForm = () => {
     password: "",
   });
 
-  const isDisabledLoginButton = !(loginForm.email && loginForm.password);
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+  });
+
+  const isDisabledLoginButton = !(
+    loginForm.email &&
+    !errors.email &&
+    loginForm.password &&
+    !errors.password
+  );
 
   const handleVisibility = () => {
     setIsVisibility(!isVisibility);
@@ -27,6 +38,30 @@ const LoginForm = () => {
     setLoginForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    switch (name) {
+      case "email":
+        if (!/\S+@\S+\.\S+/.test(value)) {
+          setErrors((prev) => ({
+            ...prev,
+            [name]: "이메일 형식이 올바르지 않습니다",
+          }));
+        } else {
+          setErrors((prev) => ({ ...prev, [name]: "" }));
+        }
+        break;
+      case "password":
+        if (value.length < 8) {
+          setErrors((prev) => ({
+            ...prev,
+            [name]: "비밀번호를 8글자 이상 입력해주세요",
+          }));
+        } else {
+          setErrors((prev) => ({ ...prev, [name]: "" }));
+        }
+    }
+  };
   return (
     <form className="form" onSubmit={handleSubmit}>
       <label>이메일</label>
@@ -36,7 +71,9 @@ const LoginForm = () => {
         placeholder="이메일을 입력해주세요"
         value={loginForm.email}
         onChange={handleChangeValue}
+        onBlur={handleBlur}
       />
+      {errors.email && <ErrorMessage errorMessage={errors.email} />}
       <label>비밀번호</label>
       <div className="password-area">
         <input
@@ -45,6 +82,7 @@ const LoginForm = () => {
           type={isVisibility ? "text" : "password"}
           placeholder="비밀번호를 입력해주세요"
           onChange={handleChangeValue}
+          onBlur={handleBlur}
         />
         <button onClick={handleVisibility} className="button" type="button">
           <img
@@ -53,6 +91,8 @@ const LoginForm = () => {
           />
         </button>
       </div>
+      {errors.password && <ErrorMessage errorMessage={errors.password} />}
+
       <button
         onClick={handleSubmit}
         className="button btn-large form-btn"

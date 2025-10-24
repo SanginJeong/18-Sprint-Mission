@@ -1,0 +1,52 @@
+@import url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.1/NanumSquare.css");
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+
+  --state-100: #f1f5f9;
+  --state-200: #e2e8f0;
+  --state-300: #cbd5e1;
+  --state-400: #94a3b8;
+  --state-500: #64748b;
+  --state-800: #1e293b;
+  --state-900: #0f172a;
+
+  --violet-100: #ede9fe;
+  --violet-600: #7c3aed;
+
+  --amber-300: #fcd34d;
+  --amber-800: #92400e;
+
+  --lime-300: #bef264;
+
+  --rose-500: #f4ef5e;
+
+  --green-700: #15803d;
+
+  --yellow-50: #fefce8;
+}
+
+.font-bold-20 {
+  font-family: "NanumSquare", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.font-bold-18 {
+  font-family: "NanumSquare", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.font-bold-16 {
+  font-family: "NanumSquare", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.font-regular-16 {
+  font-family: "NanumSquare", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}

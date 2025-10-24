@@ -11,7 +11,10 @@ interface BadgeProps {
 
 const Badge = ({ variants }: BadgeProps) => {
   return (
-    <span className={`${styles.badge} ${styles[variants]}`}>
+    <span
+      className={`${styles.badge} ${styles[variants]}`}
+      aria-label={variantsToLabel[variants]}
+    >
       {variantsToLabel[variants]}
     </span>
   );

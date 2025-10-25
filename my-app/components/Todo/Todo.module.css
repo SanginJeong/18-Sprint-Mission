@@ -1,0 +1,15 @@
+.todo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 2px solid var(--state-900);
+  border-radius: 27px;
+  padding: 9px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.done {
+  background-color: var(--violet-100);
+  text-decoration-line: line-through;
+}

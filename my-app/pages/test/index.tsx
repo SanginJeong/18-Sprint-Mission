@@ -1,6 +1,7 @@
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import CheckBox from "@/components/CheckBox";
+import Header from "@/components/Header";
 import Todo from "@/components/Todo";
 import TodoList from "@/components/TodoList";
 
@@ -33,6 +34,8 @@ const Components = () => {
           }}
         />
       </div>
+
+      <Header />
     </div>
   );
 };

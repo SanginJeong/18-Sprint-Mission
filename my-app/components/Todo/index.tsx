@@ -1,12 +1,7 @@
 import { MouseEvent } from "react";
 import styles from "./Todo.module.css";
 import CheckBox from "../CheckBox";
-
-export interface TodoItem {
-  id: number;
-  isCompleted: boolean;
-  name: string;
-}
+import { TodoItem } from "@/types/global";
 
 interface TodoProps extends TodoItem {
   onTodoClick: () => void;

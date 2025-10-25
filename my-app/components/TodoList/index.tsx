@@ -1,4 +1,5 @@
-import Todo, { TodoItem } from "../Todo";
+import Todo from "../Todo";
+import { TodoItem } from "@/types/global";
 import { MouseEvent } from "react";
 import styles from "./TodoList.module.css";
 

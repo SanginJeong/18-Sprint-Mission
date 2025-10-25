@@ -25,8 +25,8 @@ const Button = ({ variants, ...props }: ButtonProps) => {
   return (
     <button
       className={`${styles.button} ${styles[variants]} font-bold-16`}
-      onClick={props.onClick}
       aria-label={variantsToLabel[variants]}
+      {...props}
     >
       <span className={styles.content}>
         {variantsToIcon[variants]}

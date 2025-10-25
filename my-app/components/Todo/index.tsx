@@ -1,4 +1,4 @@
-import { HTMLAttributes, MouseEvent } from "react";
+import { MouseEvent } from "react";
 import styles from "./Todo.module.css";
 import CheckBox from "../CheckBox";
 

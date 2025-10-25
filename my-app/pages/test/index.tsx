@@ -2,6 +2,7 @@ import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import CheckBox from "@/components/CheckBox";
 import Todo from "@/components/Todo";
+import TodoList from "@/components/TodoList";
 
 const Components = () => {
   return (
@@ -20,20 +21,11 @@ const Components = () => {
         <CheckBox isCompleted={true} />
       </div>
       <div style={{ padding: "40px 0px" }}>
-        <Todo
-          id={0}
-          name="비타민 챙겨먹기"
-          isCompleted={false}
-          onTodoClick={() => console.log("Todo")}
-          onCheckboxClick={(e) => {
-            e.stopPropagation();
-            console.log("체크박스");
-          }}
-        />
-        <Todo
-          id={1}
-          name="비타민 챙겨먹기"
-          isCompleted={true}
+        <TodoList
+          todos={[
+            { id: 0, name: "비타민 챙겨먹기", isCompleted: false },
+            { id: 0, name: "비타민 챙겨먹기", isCompleted: true },
+          ]}
           onTodoClick={() => console.log("Todo")}
           onCheckboxClick={(e) => {
             e.stopPropagation();

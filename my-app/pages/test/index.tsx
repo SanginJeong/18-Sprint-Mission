@@ -2,12 +2,13 @@ import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import CheckBox from "@/components/CheckBox";
 import Header from "@/components/Header";
+import Layout from "@/components/Layout";
 import Todo from "@/components/Todo";
 import TodoList from "@/components/TodoList";
 
 const Components = () => {
   return (
-    <div>
+    <Layout>
       <div style={{ padding: "40px 0px" }}>
         <Button variants="append" />
         <Button variants="delete" />
@@ -36,7 +37,7 @@ const Components = () => {
       </div>
 
       <Header />
-    </div>
+    </Layout>
   );
 };
 

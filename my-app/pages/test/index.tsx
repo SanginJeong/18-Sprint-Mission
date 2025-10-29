@@ -1,3 +1,4 @@
+import { getTodos } from "@/api/getTodos";
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import CheckBox from "@/components/CheckBox";
@@ -5,8 +6,17 @@ import Header from "@/components/Header";
 import Layout from "@/components/Layout";
 import Todo from "@/components/Todo";
 import TodoList from "@/components/TodoList";
+import { useEffect } from "react";
 
 const Components = () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await getTodos();
+      console.log(res);
+    };
+
+    fetchData();
+  }, []);
   return (
     <Layout>
       <div style={{ padding: "40px 0px" }}>

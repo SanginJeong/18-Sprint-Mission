@@ -1,5 +1,6 @@
 import { deleteTodo } from "@/api/deleteTodo";
 import { getTodos } from "@/api/getTodos";
+import { patchTodo } from "@/api/patchTodo";
 import { postTodo } from "@/api/postTodo";
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
@@ -37,6 +38,20 @@ const Components = () => {
       console.log(error);
     }
   };
+
+  const handlePatchClick = async () => {
+    try {
+      const res = await patchTodo({
+        itemId: 8622,
+        name: "테스트124",
+        isCompleted: false,
+      });
+      console.log(res);
+      await fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     fetchData();
   }, []);
@@ -50,7 +65,7 @@ const Components = () => {
       <div style={{ padding: "40px 0px" }}>
         <Button variants="append" onClick={handleAppendClick} />
         <Button variants="delete" onClick={handleDeleteClick} />
-        <Button variants="update" />
+        <Button variants="update" onClick={handlePatchClick} />
       </div>
       <div style={{ padding: "40px 0px" }}>
         <Badge variants="todo" />

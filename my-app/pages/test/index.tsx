@@ -1,3 +1,4 @@
+import { deleteTodo } from "@/api/deleteTodo";
 import { getTodos } from "@/api/getTodos";
 import { postTodo } from "@/api/postTodo";
 import Badge from "@/components/Badge";
@@ -27,6 +28,15 @@ const Components = () => {
     await fetchData();
   };
 
+  const handleDeleteClick = async () => {
+    try {
+      const res = await deleteTodo({ itemId: 8623 });
+      console.log(res);
+      await fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     fetchData();
   }, []);
@@ -39,7 +49,7 @@ const Components = () => {
     <Layout>
       <div style={{ padding: "40px 0px" }}>
         <Button variants="append" onClick={handleAppendClick} />
-        <Button variants="delete" />
+        <Button variants="delete" onClick={handleDeleteClick} />
         <Button variants="update" />
       </div>
       <div style={{ padding: "40px 0px" }}>

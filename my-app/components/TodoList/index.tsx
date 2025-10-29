@@ -13,7 +13,7 @@ const TodoList = ({ todos, onTodoClick, onCheckboxClick }: TodoListProps) => {
   return (
     <ul className={styles.ul}>
       {todos.map((todo) => (
-        <li>
+        <li key={todo.id}>
           <Todo
             id={todo.id}
             name={todo.name}

@@ -1,4 +1,5 @@
 import { getTodos } from "@/api/getTodos";
+import { postTodo } from "@/api/postTodo";
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import CheckBox from "@/components/CheckBox";
@@ -6,21 +7,39 @@ import Header from "@/components/Header";
 import Layout from "@/components/Layout";
 import Todo from "@/components/Todo";
 import TodoList from "@/components/TodoList";
-import { useEffect } from "react";
+import { TodoItem } from "@/types/global";
+import { useEffect, useState } from "react";
 
 const Components = () => {
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await getTodos();
-      console.log(res);
-    };
+  const [todos, setTodos] = useState<TodoItem[]>([]);
 
+  const fetchData = async () => {
+    try {
+      const items = await getTodos();
+
+      setTodos(items);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleAppendClick = async () => {
+    await postTodo({ name: "테스트x" });
+    await fetchData();
+  };
+
+  useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    console.log(todos);
+  }, [todos]);
+
   return (
     <Layout>
       <div style={{ padding: "40px 0px" }}>
-        <Button variants="append" />
+        <Button variants="append" onClick={handleAppendClick} />
         <Button variants="delete" />
         <Button variants="update" />
       </div>
@@ -34,10 +53,7 @@ const Components = () => {
       </div>
       <div style={{ padding: "40px 0px" }}>
         <TodoList
-          todos={[
-            { id: 0, name: "비타민 챙겨먹기", isCompleted: false },
-            { id: 0, name: "비타민 챙겨먹기", isCompleted: true },
-          ]}
+          todos={todos}
           onTodoClick={() => console.log("Todo")}
           onCheckboxClick={(e) => {
             e.stopPropagation();

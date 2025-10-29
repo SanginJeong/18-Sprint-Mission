@@ -16,7 +16,6 @@ const Components = () => {
   const fetchData = async () => {
     try {
       const items = await getTodos();
-
       setTodos(items);
     } catch (error) {
       console.error(error);

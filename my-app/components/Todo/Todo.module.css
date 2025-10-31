@@ -5,7 +5,6 @@
   border: 2px solid var(--state-900);
   border-radius: 27px;
   padding: 9px;
-  cursor: pointer;
 }
 
 .done {

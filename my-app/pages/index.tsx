@@ -8,6 +8,9 @@ import TodoList from "@/components/TodoList";
 import { patchTodo } from "@/api/patchTodo";
 import Badge from "@/components/Badge";
 import styles from "../styles/Home.module.css";
+import Image from "next/image";
+import ImgEmptyPending from "@/public/images/img_empty-todo.svg";
+import ImgEmptyCompleted from "@/public/images/img_empty-done.svg";
 
 interface HomeProps {
   todos: TodoItem[];
@@ -77,17 +80,37 @@ export default function Home({ todos: initialTodos }: HomeProps) {
       <main className={styles.main}>
         <section className={styles.section}>
           <Badge variants="todo" className={styles.badge} />
-          <TodoList
-            todos={pendingTodos}
-            onCheckboxClick={handleCheckboxClick}
-          />
+          {pendingTodos.length > 0 ? (
+            <TodoList
+              todos={pendingTodos}
+              onCheckboxClick={handleCheckboxClick}
+            />
+          ) : (
+            <Image
+              className={styles.img}
+              src={ImgEmptyPending}
+              alt="pending todo"
+              width={240}
+              height={240}
+            />
+          )}
         </section>
         <section className={styles.section}>
           <Badge variants="done" className={styles.badge} />
-          <TodoList
-            todos={completedTodos}
-            onCheckboxClick={handleCheckboxClick}
-          />
+          {completedTodos.length > 0 ? (
+            <TodoList
+              todos={completedTodos}
+              onCheckboxClick={handleCheckboxClick}
+            />
+          ) : (
+            <Image
+              className={styles.img}
+              src={ImgEmptyCompleted}
+              alt="completed todo"
+              width={240}
+              height={240}
+            />
+          )}
         </section>
       </main>
     </Layout>

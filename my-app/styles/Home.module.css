@@ -6,10 +6,17 @@
 
 .section {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .badge {
+  align-self: flex-start;
   margin: 24px 0px;
+}
+
+.img {
+  align-self: center;
 }
 
 @media screen and (max-width: 720px) {

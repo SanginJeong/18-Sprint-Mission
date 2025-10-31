@@ -5,11 +5,10 @@ import styles from "./TodoList.module.css";
 
 interface TodoListProps {
   todos: TodoItem[];
-  onTodoClick: () => void;
-  onCheckboxClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  onCheckboxClick: () => void;
 }
 
-const TodoList = ({ todos, onTodoClick, onCheckboxClick }: TodoListProps) => {
+const TodoList = ({ todos, onCheckboxClick }: TodoListProps) => {
   return (
     <ul className={styles.ul}>
       {todos.map((todo) => (
@@ -19,7 +18,6 @@ const TodoList = ({ todos, onTodoClick, onCheckboxClick }: TodoListProps) => {
             name={todo.name}
             isCompleted={todo.isCompleted}
             onCheckboxClick={onCheckboxClick}
-            onTodoClick={onTodoClick}
           />
         </li>
       ))}

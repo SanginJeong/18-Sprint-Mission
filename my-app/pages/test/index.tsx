@@ -78,9 +78,7 @@ const Components = () => {
       <div style={{ padding: "40px 0px" }}>
         <TodoList
           todos={todos}
-          onTodoClick={() => console.log("Todo")}
-          onCheckboxClick={(e) => {
-            e.stopPropagation();
+          onCheckboxClick={() => {
             console.log("체크박스");
           }}
         />

@@ -4,22 +4,19 @@ import CheckBox from "../CheckBox";
 import { TodoItem } from "@/types/global";
 
 interface TodoProps extends TodoItem {
-  onTodoClick: () => void;
-  onCheckboxClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  onCheckboxClick: () => void;
 }
 
 const Todo = ({
   id,
   isCompleted,
   name,
-  onTodoClick,
   onCheckboxClick,
   ...props
 }: TodoProps) => {
   return (
     <span
       className={`${styles.todo} ${isCompleted && styles.done} font-regular-16`}
-      onClick={onTodoClick}
       aria-label="todo"
     >
       <CheckBox isCompleted={isCompleted} onClick={onCheckboxClick} />

@@ -1,11 +1,10 @@
 import Todo from "../Todo";
 import { TodoItem } from "@/types/global";
-import { MouseEvent } from "react";
 import styles from "./TodoList.module.css";
 
 interface TodoListProps {
   todos: TodoItem[];
-  onCheckboxClick: () => void;
+  onCheckboxClick: (id: number, isCompleted: boolean) => void;
 }
 
 const TodoList = ({ todos, onCheckboxClick }: TodoListProps) => {

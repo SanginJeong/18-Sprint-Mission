@@ -44,7 +44,7 @@ const Components = () => {
       const res = await patchTodo({
         itemId: 8622,
         name: "테스트124",
-        isCompleted: false,
+        isCompleted: true,
       });
       console.log(res);
       await fetchData();

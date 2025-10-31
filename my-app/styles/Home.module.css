@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.section {
+  flex: 1;
+}
+
+.badge {
+  margin: 24px 0px;
+}
+
+@media screen and (max-width: 720px) {
+  .main {
+    flex-direction: column;
+  }
+}

@@ -6,9 +6,10 @@ interface SearchProps {
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  isDisabled: boolean;
 }
 
-const SearchForm = ({ value, onChange, onSubmit }: SearchProps) => {
+const SearchForm = ({ value, onChange, onSubmit, isDisabled }: SearchProps) => {
   return (
     <search>
       <form className={styles.form} onSubmit={onSubmit}>
@@ -19,7 +20,7 @@ const SearchForm = ({ value, onChange, onSubmit }: SearchProps) => {
           type="text"
           placeholder="할 일을 입력해주세요"
         />
-        <Button variants="append" type="submit" />
+        <Button variants="append" type="submit" disabled={isDisabled} />
       </form>
     </search>
   );
